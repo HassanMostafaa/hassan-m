@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_header_componenets_header_navigations",
+  "info": {
+    "displayName": "HeaderNavigations"
+  },
+  "options": {},
+  "attributes": {
+    "Items": {
+      "type": "component",
+      "component": "base-components.button",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

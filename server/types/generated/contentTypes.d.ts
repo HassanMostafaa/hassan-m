@@ -491,18 +491,26 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Btns: Schema.Attribute.Component<'base-components.button', false>;
+    Brand: Schema.Attribute.Component<'base-components.brand-logo', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Links: Schema.Attribute.Component<'header-componenets.link', true>;
+    HeaderNavigations: Schema.Attribute.Component<
+      'header-componenets.header-navigations',
+      false
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::header.header'
     > &
       Schema.Attribute.Private;
+    PrimaryAction: Schema.Attribute.Component<'base-components.button', false>;
     publishedAt: Schema.Attribute.DateTime;
+    SecondaryAction: Schema.Attribute.Component<
+      'base-components.button',
+      false
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

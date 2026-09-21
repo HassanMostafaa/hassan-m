@@ -12,6 +12,37 @@
     },
     "ButtonUrl": {
       "type": "string"
+    },
+    "Variant": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Button",
+      "enum": [
+        "Button",
+        "Link"
+      ]
+    },
+    "Style": {
+      "type": "enumeration",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "Variant"
+            },
+            "Button"
+          ]
+        }
+      },
+      "default": "Secondary",
+      "enum": [
+        "Primary",
+        "Secondary"
+      ]
+    },
+    "ExternalUrl": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

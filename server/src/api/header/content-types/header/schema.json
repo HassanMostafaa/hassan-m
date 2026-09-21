@@ -11,12 +11,22 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Links": {
+    "Brand": {
       "type": "component",
-      "component": "header-componenets.link",
-      "repeatable": true
+      "component": "base-components.brand-logo",
+      "repeatable": false
     },
-    "Btns": {
+    "HeaderNavigations": {
+      "type": "component",
+      "component": "header-componenets.header-navigations",
+      "repeatable": false
+    },
+    "SecondaryAction": {
+      "type": "component",
+      "component": "base-components.button",
+      "repeatable": false
+    },
+    "PrimaryAction": {
       "type": "component",
       "component": "base-components.button",
       "repeatable": false
