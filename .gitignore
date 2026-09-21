@@ -1,0 +1,63 @@
+# -------- Dependencies --------
+
+node_modules/
+.pnp/
+.pnp.js
+
+# -------- Environment --------
+
+.env
+.env.*
+!.env.example
+
+# -------- Next.js --------
+
+client/.next/
+client/out/
+client/.vercel/
+
+# -------- Strapi --------
+
+server/.cache/
+server/.tmp/
+server/build/
+server/dist/
+server/public/uploads/
+
+# -------- Logs --------
+
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# -------- Testing / Coverage --------
+
+coverage/
+.nyc_output/
+
+# -------- TypeScript --------
+
+*.tsbuildinfo
+
+# -------- IDE / Editor --------
+
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+
+# -------- OS --------
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# -------- Misc --------
+
+*.tgz
+*.tar.gz
