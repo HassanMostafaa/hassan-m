@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_base_components_buttons",
+  "info": {
+    "displayName": "Button"
+  },
+  "options": {},
+  "attributes": {
+    "ButtonText": {
+      "type": "string",
+      "default": "Button",
+      "required": true
+    },
+    "ButtonUrl": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
