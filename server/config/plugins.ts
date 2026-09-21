@@ -43,20 +43,16 @@ const config = ({
         api_secret: env("CLOUDINARY_SECRET"),
       },
       actionOptions: {
-        upload: {},
-        uploadStream: {},
+        upload: {
+          asset_folder: "strapi-portfolio",
+        },
+        uploadStream: {
+          asset_folder: "strapi-portfolio",
+        },
         delete: {},
       },
     },
   },
-  // upload: {
-  //   config: {
-  //     security: {
-  //       allowedTypes: allowedMediaTypes,
-  //       deniedTypes,
-  //     },
-  //   },
-  // },
 });
 
 export default config;
