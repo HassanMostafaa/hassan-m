@@ -1,3 +1,5 @@
+# REPLACED WITH codegen.ts FOR DYNAMIC CONFIGS WITH .ENV
+
 # schema: ${API_URL}/graphql
 # documents: "src/services/graphql/**/*.ts"
 # generates:
