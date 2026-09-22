@@ -15,8 +15,6 @@ export const getLayoutProps = async (): Promise<ILayoutPropsResponse> => {
 
     const [header] = await Promise.all([headerQuery]);
 
-    console.log("Header data:", { header });
-
     return {
       header: header?.data?.header,
       footer: null,
