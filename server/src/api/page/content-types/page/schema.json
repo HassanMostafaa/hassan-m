@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "singularName": "page",
+    "pluralName": "pages",
+    "displayName": "Pages"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "minLength": 3,
+      "required": true,
+      "unique": true,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "seo": {
+      "type": "component",
+      "component": "meta-components.seo",
+      "repeatable": false
+    },
+    "Sections": {
+      "type": "dynamiczone",
+      "components": [
+        "base-components.button",
+        "base-components.brand-logo",
+        "components.hero-section",
+        "components.grid-cards"
+      ]
+    }
+  }
+}

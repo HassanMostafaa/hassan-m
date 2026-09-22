@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_components_hero_sections",
+  "info": {
+    "displayName": "HeroSection",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "tag": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Subtitle": {
+      "type": "blocks"
+    },
+    "CallToAction": {
+      "type": "component",
+      "component": "base-components.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

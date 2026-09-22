@@ -53,6 +53,12 @@ const config = ({
       },
     },
   },
+  graphql: {
+    enabled: true,
+    config: {
+      endpoint: "/graphql",
+    },
+  },
 });
 
 export default config;

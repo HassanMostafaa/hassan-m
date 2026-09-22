@@ -30,6 +30,43 @@ export interface BaseComponentsButton extends Struct.ComponentSchema {
   };
 }
 
+export interface BaseComponentsSimpleCard extends Struct.ComponentSchema {
+  collectionName: 'components_base_components_simple_cards';
+  info: {
+    displayName: 'SimpleCard';
+  };
+  attributes: {
+    Action: Schema.Attribute.Component<'base-components.button', false>;
+    Description: Schema.Attribute.Blocks;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface ComponentsGridCards extends Struct.ComponentSchema {
+  collectionName: 'components_components_grid_cards';
+  info: {
+    displayName: 'GridCards';
+    icon: 'bulletList';
+  };
+  attributes: {
+    Items: Schema.Attribute.Component<'base-components.simple-card', true>;
+  };
+}
+
+export interface ComponentsHeroSection extends Struct.ComponentSchema {
+  collectionName: 'components_components_hero_sections';
+  info: {
+    displayName: 'HeroSection';
+    icon: 'bulletList';
+  };
+  attributes: {
+    CallToAction: Schema.Attribute.Component<'base-components.button', false>;
+    Subtitle: Schema.Attribute.Blocks;
+    tag: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+  };
+}
+
 export interface HeaderComponenetsHeaderNavigations
   extends Struct.ComponentSchema {
   collectionName: 'components_header_componenets_header_navigations';
@@ -41,12 +78,30 @@ export interface HeaderComponenetsHeaderNavigations
   };
 }
 
+export interface MetaComponentsSeo extends Struct.ComponentSchema {
+  collectionName: 'components_meta_components_seos';
+  info: {
+    displayName: 'Seo';
+  };
+  attributes: {
+    canonicalUrl: Schema.Attribute.String;
+    metaDescription: Schema.Attribute.String;
+    metaImage: Schema.Attribute.Media<'images'>;
+    metaTitle: Schema.Attribute.String;
+    noIndex: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
       'base-components.brand-logo': BaseComponentsBrandLogo;
       'base-components.button': BaseComponentsButton;
+      'base-components.simple-card': BaseComponentsSimpleCard;
+      'components.grid-cards': ComponentsGridCards;
+      'components.hero-section': ComponentsHeroSection;
       'header-componenets.header-navigations': HeaderComponenetsHeaderNavigations;
+      'meta-components.seo': MetaComponentsSeo;
     }
   }
 }

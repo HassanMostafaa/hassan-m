@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_base_components_simple_cards",
+  "info": {
+    "displayName": "SimpleCard"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Action": {
+      "type": "component",
+      "component": "base-components.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_components_grid_cards",
+  "info": {
+    "displayName": "GridCards",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "Items": {
+      "type": "component",
+      "component": "base-components.simple-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
