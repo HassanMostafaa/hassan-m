@@ -1,0 +1,13 @@
+# schema: ${API_URL}/graphql
+# documents: "src/services/graphql/**/*.ts"
+# generates:
+#   src/types/IGenTypes.ts:
+#     plugins:
+#       - typescript
+#       - typescript-operations
+#       - typed-document-node
+#     config:
+#       withHooks: true
+#       skipTypename: false
+#       avoidOptionals: true
+#       typesPrefix: IGen

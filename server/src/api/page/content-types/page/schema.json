@@ -11,7 +11,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "required": true
     },
@@ -27,7 +27,7 @@
       "component": "meta-components.seo",
       "repeatable": false
     },
-    "Sections": {
+    "sections": {
       "type": "dynamiczone",
       "components": [
         "base-components.button",

@@ -535,7 +535,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Sections: Schema.Attribute.DynamicZone<
+    sections: Schema.Attribute.DynamicZone<
       [
         'base-components.button',
         'base-components.brand-logo',
@@ -550,7 +550,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       Schema.Attribute.SetMinMaxLength<{
         minLength: 3;
       }>;
-    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
