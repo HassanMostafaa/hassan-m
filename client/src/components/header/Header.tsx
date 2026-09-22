@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IGenHeader } from "@/src/types/IGenTypes";
+import { Button } from "@/src/base-components/button/Button";
 
 export function Header({
   Brand,
@@ -9,7 +10,7 @@ export function Header({
   SecondaryAction,
 }: IGenHeader) {
   return (
-    <header className="sticky bg-primary/5 border-primary border w-full max-w-2xl items-center backdrop-blur-2xl p-4 flex justify-between mx-auto top-0 z-50">
+    <header className="sticky mt-6 bg-primary/5 border-primary/30 border w-full max-w-xl items-center backdrop-blur-2xl p-2 flex justify-between mx-auto top-0 z-50">
       {/* Brand */}
       <Link href="/" className="flex items-center">
         {Brand?.Logo?.url && (
@@ -18,7 +19,7 @@ export function Header({
             alt={Brand.Logo.alternativeText || "logo"}
             width={240}
             height={80}
-            className="hidden w-30 h-auto sm:block"
+            className="hidden w-25 h-auto sm:block"
             priority
           />
         )}
@@ -36,73 +37,24 @@ export function Header({
       </Link>
 
       {/* Desktop navigation */}
-      <nav className="flex gap-4">
-        {HeaderNavigations?.Items?.map((item) => {
-          if (!item?.ButtonUrl) return null;
 
-          return (
-            <Link key={item.id} href={item.ButtonUrl}>
-              {item.ButtonText}
-            </Link>
-          );
-        })}
-      </nav>
+      {HeaderNavigations?.Items?.map((item) => {
+        if (!item?.ButtonUrl) return null;
 
-      <div>
-        {SecondaryAction?.ButtonUrl && (
-          <HeaderButton
-            label={SecondaryAction.ButtonText}
-            href={SecondaryAction.ButtonUrl}
-            external={SecondaryAction.ExternalUrl}
-            variant={SecondaryAction.Style}
-          />
-        )}
+        return (
+          <Link key={item.id} href={item.ButtonUrl}>
+            {item.ButtonText}
+          </Link>
+        );
+      })}
 
-        {PrimaryAction?.ButtonUrl && (
-          <HeaderButton
-            label={PrimaryAction.ButtonText}
-            href={PrimaryAction.ButtonUrl}
-            external={PrimaryAction.ExternalUrl}
-            variant={PrimaryAction.Style}
-          />
-        )}
-      </div>
+      {SecondaryAction?.ButtonUrl && (
+        <Button {...SecondaryAction} className="px-4!" />
+      )}
+
+      {PrimaryAction?.ButtonUrl && (
+        <Button {...PrimaryAction} className="px-4!" />
+      )}
     </header>
-  );
-}
-
-function HeaderButton({
-  label,
-  href,
-  external,
-  variant,
-}: {
-  label?: string | null;
-  href: string;
-  external?: boolean | null;
-  variant?: string | null;
-}) {
-  const className =
-    variant === "Primary"
-      ? " bg-primary px-5 py-2.5 text-sm font-medium text-white border border-primary transition-colors hover:bg-primary-hover"
-      : "bg-[#152136] border border-primary px-5 py-2.5 text-sm font-medium text-white";
-
-  if (external) {
-    return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={className}
-      >
-        {label}
-      </a>
-    );
-  }
-
-  return (
-    <Link href={href} className={className}>
-      {label}
-    </Link>
   );
 }
