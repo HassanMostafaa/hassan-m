@@ -1,6 +1,7 @@
 import { getPageProps } from "@/src/services/content/getPageProps";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { Page } from "@/src/base-components/page/Page";
 
 interface PageProps {
   params: Promise<{
@@ -13,25 +14,17 @@ interface PageProps {
 
 export default async function NextjsPage({
   params: promiseParams,
-  searchParams: promiseSearchParams,
+  // searchParams: promiseSearchParams,
 }: PageProps) {
   const params = await promiseParams;
-  const searchParams = await promiseSearchParams;
+  // const searchParams = await promiseSearchParams;
   const slug = params?.slug?.join("/") || "home";
 
   const { is404, page } = await getPageProps(slug);
 
   if (is404) notFound();
 
-  return (
-    <div>
-      <p>params: {JSON.stringify(params)}</p>
-      <p>searchParams: {JSON.stringify(searchParams)}</p>
-      <p>slug: {slug}</p>
-
-      <pre>{JSON.stringify(page, null, 2)}</pre>
-    </div>
-  );
+  return <>{page?.sections && <Page sections={page.sections} />} </>;
 }
 
 export async function generateMetadata({

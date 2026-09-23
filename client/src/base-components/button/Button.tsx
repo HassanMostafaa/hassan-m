@@ -19,15 +19,6 @@ export const Button: FunctionComponent<ButtonProps> = ({
   startIcon,
   endIcon,
 }) => {
-  const buttonClassName = cn(
-    "inline-flex items-center justify-center gap-2 border p-2",
-    {
-      "border-primary bg-primary text-black": Style === "Primary",
-      "border-primary/20 bg-primary/10 text-white": Style === "Secondary",
-    },
-    className,
-  );
-
   const content = (
     <>
       {startIcon}
@@ -37,6 +28,15 @@ export const Button: FunctionComponent<ButtonProps> = ({
   );
 
   if (Variant === "Button") {
+    const buttonClassName = cn(
+      "w-fit flex items-center justify-center gap-2 border p-2",
+      {
+        "border-primary bg-primary text-black": Style === "Primary",
+        "border-primary/20 bg-primary/5 text-white": Style === "Secondary",
+      },
+      className,
+    );
+
     return (
       <button type="button" className={buttonClassName}>
         {content}
@@ -45,7 +45,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
   }
 
   if (!ButtonUrl) {
-    return <span className={buttonClassName}>{content}</span>;
+    return <span className={className}>{content}</span>;
   }
 
   if (ExternalUrl) {
@@ -54,7 +54,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
         href={ButtonUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className={buttonClassName}
+        className={className}
       >
         {content}
       </a>
@@ -62,7 +62,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
   }
 
   return (
-    <Link href={ButtonUrl} className={buttonClassName}>
+    <Link href={ButtonUrl} className={className}>
       {content}
     </Link>
   );

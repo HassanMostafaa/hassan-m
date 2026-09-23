@@ -1,16 +1,15 @@
 import "./globals.css";
-import { getLayoutProps } from "@/src/services/content/getLayoutProps";
-import { Header } from "@/src/components/header/Header";
+import { MainLayout } from "@/src/layouts/MainLayout";
+import { cn } from "@/src/utils/cn";
+import { chillax } from "@/src/assets/fonts/fonts";
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
-  const { header } = await getLayoutProps();
   return (
-    <html lang="en" className={` h-full antialiased`}>
-      <body className="bg-background text-white min-h-full flex flex-col">
-        {header && <Header {...header} />}
-
-        <main className="flex-1">{children}</main>
-      </body>
+    <html
+      lang="en"
+      className={cn(chillax.variable, `h-full antialiased font-chillax`)}
+    >
+      <MainLayout>{children}</MainLayout>
     </html>
   );
 }

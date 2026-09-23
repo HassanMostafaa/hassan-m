@@ -13,24 +13,25 @@
 
 @theme {
   /* Primary */
-  --color-primary: #60a5fa;
-  --color-primary-hover: #e0f2fe;
+  --color-primary: #9bccff;
+  --color-primary-hover: #cde7ff;
   --color-background: #07101f;
 
   /* Secondary */
   --color-secondary: #262626;
   --color-secondary-hover: #1f2937;
-
   /* Accent */
   --color-accent: #2563eb;
   --color-accent-hover: #475569;
   --color-accent-light: #93c5fd;
-
   /* Surface / text */
   --color-surface: #ffffff;
   --color-muted: #64748b;
   --color-muted-hover: #334155;
-}
 
-body {
+  --color-border: #2c3e56;
+  --color-text: #e6f4ff;
+  --color-text-muted: #759bc3;
+
+  --font-chillax: var(--font-chillax);
 }
