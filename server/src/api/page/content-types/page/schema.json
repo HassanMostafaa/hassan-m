@@ -30,10 +30,9 @@
     "sections": {
       "type": "dynamiczone",
       "components": [
-        "base-components.button",
-        "base-components.brand-logo",
         "components.hero-section",
-        "components.grid-cards"
+        "components.grid-cards",
+        "components.featured-projects"
       ]
     }
   }

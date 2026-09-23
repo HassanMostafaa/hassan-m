@@ -537,10 +537,9 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     sections: Schema.Attribute.DynamicZone<
       [
-        'base-components.button',
-        'base-components.brand-logo',
         'components.hero-section',
         'components.grid-cards',
+        'components.featured-projects',
       ]
     >;
     seo: Schema.Attribute.Component<'meta-components.seo', false>;

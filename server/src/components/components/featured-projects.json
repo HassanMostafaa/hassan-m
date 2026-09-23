@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_components_featured_projects",
+  "info": {
+    "displayName": "FeaturedProjects",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "Items": {
+      "type": "component",
+      "component": "base-components.project-teaser-card",
+      "repeatable": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "seeAllButton": {
+      "type": "component",
+      "component": "base-components.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

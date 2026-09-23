@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_base_components_project_teaser_cards",
+  "info": {
+    "displayName": "ProjectTeaserCard"
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "projectUrl": {
+      "type": "string",
+      "default": "/work/",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

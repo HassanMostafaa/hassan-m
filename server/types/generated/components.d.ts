@@ -30,6 +30,22 @@ export interface BaseComponentsButton extends Struct.ComponentSchema {
   };
 }
 
+export interface BaseComponentsProjectTeaserCard
+  extends Struct.ComponentSchema {
+  collectionName: 'components_base_components_project_teaser_cards';
+  info: {
+    displayName: 'ProjectTeaserCard';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    Image: Schema.Attribute.Media<'images'>;
+    projectUrl: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'/work/'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BaseComponentsSimpleCard extends Struct.ComponentSchema {
   collectionName: 'components_base_components_simple_cards';
   info: {
@@ -39,6 +55,22 @@ export interface BaseComponentsSimpleCard extends Struct.ComponentSchema {
     Action: Schema.Attribute.Component<'base-components.button', false>;
     Description: Schema.Attribute.Blocks;
     Title: Schema.Attribute.String;
+  };
+}
+
+export interface ComponentsFeaturedProjects extends Struct.ComponentSchema {
+  collectionName: 'components_components_featured_projects';
+  info: {
+    displayName: 'FeaturedProjects';
+    icon: 'bulletList';
+  };
+  attributes: {
+    Items: Schema.Attribute.Component<
+      'base-components.project-teaser-card',
+      true
+    >;
+    seeAllButton: Schema.Attribute.Component<'base-components.button', false>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -97,7 +129,9 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'base-components.brand-logo': BaseComponentsBrandLogo;
       'base-components.button': BaseComponentsButton;
+      'base-components.project-teaser-card': BaseComponentsProjectTeaserCard;
       'base-components.simple-card': BaseComponentsSimpleCard;
+      'components.featured-projects': ComponentsFeaturedProjects;
       'components.grid-cards': ComponentsGridCards;
       'components.hero-section': ComponentsHeroSection;
       'header-componenets.header-navigations': HeaderComponenetsHeaderNavigations;

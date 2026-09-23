@@ -10,7 +10,7 @@ function renderSectionByType(section: IGenPageSectionsDynamicZone): ReactNode {
 
     default:
       return (
-        <div className="border border-primary p-2">
+        <div className="border border-primary bg-primary/10 p-2">
           Unimplemented section: {section.__typename ?? "Unknown"}
         </div>
       );

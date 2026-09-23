@@ -27,16 +27,41 @@ export const Button: FunctionComponent<ButtonProps> = ({
     </>
   );
 
-  if (Variant === "Button") {
-    const buttonClassName = cn(
-      "w-fit flex items-center justify-center gap-2 border p-2",
-      {
-        "border-primary bg-primary text-black": Style === "Primary",
-        "border-primary/20 bg-primary/5 text-white": Style === "Secondary",
-      },
-      className,
-    );
+  const buttonClassName = cn(
+    "w-fit flex items-center cursor-pointer transition duration-300 justify-center gap-2 border p-2",
+    {
+      "border-primary bg-primary hover:bg-primary-hover text-black":
+        Style === "Primary",
+      "border-primary/20 bg-primary/5 hover:bg-primary-hover/10 text-white":
+        Style === "Secondary",
+    },
+    className,
+  );
 
+  // Button variant with a URL = styled link
+  if (Variant === "Button" && ButtonUrl) {
+    if (ExternalUrl) {
+      return (
+        <a
+          href={ButtonUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={buttonClassName}
+        >
+          {content}
+        </a>
+      );
+    }
+
+    return (
+      <Link href={ButtonUrl} className={buttonClassName}>
+        {content}
+      </Link>
+    );
+  }
+
+  // Normal button
+  if (Variant === "Button") {
     return (
       <button type="button" className={buttonClassName}>
         {content}
@@ -44,8 +69,9 @@ export const Button: FunctionComponent<ButtonProps> = ({
     );
   }
 
+  // Link variant
   if (!ButtonUrl) {
-    return <span className={className}>{content}</span>;
+    return <span className={cn(className, "cursor-pointer")}>{content}</span>;
   }
 
   if (ExternalUrl) {
@@ -54,7 +80,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
         href={ButtonUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className={className}
+        className={cn(className, "cursor-pointer")}
       >
         {content}
       </a>
@@ -62,7 +88,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
   }
 
   return (
-    <Link href={ButtonUrl} className={className}>
+    <Link href={ButtonUrl} className={cn(className, "cursor-pointer")}>
       {content}
     </Link>
   );
