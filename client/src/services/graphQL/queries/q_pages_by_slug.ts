@@ -1,3 +1,4 @@
+import { f_featured_projects } from "./../fragments/components/f_featured_projects";
 import { gql, TypedDocumentNode } from "@apollo/client";
 import { f_seo } from "../fragments/f_seo";
 import {
@@ -5,7 +6,7 @@ import {
   IGenQ_Pages_By_SlugQueryVariables,
 } from "@/src/types/IGenTypes";
 import { f_hero_section } from "../fragments/components/f_hero_section";
-import { f_grid_cards } from "../fragments/components/f_grid_cards";
+import { f_simple_cards_grid } from "../fragments/components/f_grid_cards";
 
 export const q_pages_by_slug: TypedDocumentNode<
   { pages: Array<IGenPage> },
@@ -13,7 +14,8 @@ export const q_pages_by_slug: TypedDocumentNode<
 > = gql`
   ${f_seo}
   ${f_hero_section}
-  ${f_grid_cards}
+  ${f_simple_cards_grid}
+  ${f_featured_projects}
 
   query q_pages_by_slug($filters: PageFiltersInput) {
     pages(filters: $filters) {
@@ -25,7 +27,8 @@ export const q_pages_by_slug: TypedDocumentNode<
       }
       sections {
         ...f_hero_section
-        ...f_grid_cards
+        ...f_simple_cards_grid
+        ...f_featured_projects
       }
       createdAt
       updatedAt

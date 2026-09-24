@@ -35,7 +35,7 @@ export const Brand: FunctionComponent<BrandProps> = ({
         <Image
           src={Logo.url}
           alt={Logo.alternativeText || "logo"}
-          width={desktopSize}
+          width={150}
           height={80}
           style={{ width: desktopSize, height: "auto" }}
           className={desktopClassName}

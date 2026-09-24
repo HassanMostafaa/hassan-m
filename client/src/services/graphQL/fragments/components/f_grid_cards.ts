@@ -1,15 +1,15 @@
 import { gql } from "@apollo/client";
 import { f_button } from "../base-components/f_button";
 
-export const f_grid_cards = gql`
+export const f_simple_cards_grid = gql`
   ${f_button}
-  fragment f_grid_cards on ComponentComponentsGridCards {
+  fragment f_simple_cards_grid on ComponentComponentsGridCards {
     id
-    Items {
+    items {
       id
-      Title
-      Description
-      Action {
+      title
+      description
+      action {
         ...f_button
       }
     }

@@ -55,9 +55,9 @@ export interface BaseComponentsSimpleCard extends Struct.ComponentSchema {
     displayName: 'SimpleCard';
   };
   attributes: {
-    Action: Schema.Attribute.Component<'base-components.button', false>;
-    Description: Schema.Attribute.Blocks;
-    Title: Schema.Attribute.String;
+    action: Schema.Attribute.Component<'base-components.button', false>;
+    description: Schema.Attribute.Blocks;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -80,11 +80,11 @@ export interface ComponentsFeaturedProjects extends Struct.ComponentSchema {
 export interface ComponentsGridCards extends Struct.ComponentSchema {
   collectionName: 'components_components_grid_cards';
   info: {
-    displayName: 'GridCards';
+    displayName: 'SimpleCardsGrid';
     icon: 'bulletList';
   };
   attributes: {
-    Items: Schema.Attribute.Component<'base-components.simple-card', true>;
+    items: Schema.Attribute.Component<'base-components.simple-card', true>;
   };
 }
 

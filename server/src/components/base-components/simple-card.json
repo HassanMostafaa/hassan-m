@@ -5,13 +5,13 @@
   },
   "options": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Description": {
+    "description": {
       "type": "blocks"
     },
-    "Action": {
+    "action": {
       "type": "component",
       "component": "base-components.button",
       "repeatable": false

@@ -14,7 +14,7 @@ export const HeroSection: FunctionComponent<
   }
 
   return (
-    <section className="flex max-w-5xl! container flex-col gap-4 items-center justify-center text-center">
+    <section className="flex max-w-5xl! min-h-[60dvh] container flex-col gap-4 items-center justify-center text-center">
       {tag && (
         <span className="flex gap-2 items-center text-primary">
           <Globe /> {tag}
@@ -39,6 +39,7 @@ export const HeroSection: FunctionComponent<
               <MoveUpRight
                 className="transition-transform duration-300 group-hover:rotate-135 text-primary"
                 size={18}
+                strokeWidth={1}
               />
             </span>
           }

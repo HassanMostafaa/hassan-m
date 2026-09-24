@@ -2,11 +2,17 @@ import { FunctionComponent, ReactNode } from "react";
 
 import { HeroSection } from "@/src/components/hero-section/HeroSection";
 import { IGenPageSectionsDynamicZone, Maybe } from "@/src/types/IGenTypes";
+import { FeaturedProjects } from "@/src/components/featured-projects/FeaturedProjects";
+import { SimpleCardsGrid } from "@/src/components/simple-cards-grid/SimpleCardsGrid";
 
 function renderSectionByType(section: IGenPageSectionsDynamicZone): ReactNode {
   switch (section.__typename) {
     case "ComponentComponentsHeroSection":
       return <HeroSection {...section} />;
+    case "ComponentComponentsFeaturedProjects":
+      return <FeaturedProjects {...section} />;
+    case "ComponentComponentsGridCards":
+      return <SimpleCardsGrid {...section} />;
 
     default:
       return (
@@ -41,6 +47,9 @@ export const Page: FunctionComponent<{
           </div>
         );
       })}
+
+      {/* footer spacing */}
+      <div />
     </>
   );
 };

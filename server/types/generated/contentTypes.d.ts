@@ -569,8 +569,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     sections: Schema.Attribute.DynamicZone<
       [
         'components.hero-section',
-        'components.grid-cards',
         'components.featured-projects',
+        'components.grid-cards',
       ]
     >;
     seo: Schema.Attribute.Component<'meta-components.seo', false>;

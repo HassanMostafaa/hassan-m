@@ -3,7 +3,11 @@ import { f_button } from "./../fragments/base-components/f_button";
 import { gql, TypedDocumentNode } from "@apollo/client";
 import { IGenFooter } from "@/src/types/IGenTypes";
 
-export const q_footer: TypedDocumentNode<{ footer: IGenFooter }> = gql`
+interface IFooterQuery {
+  footer: IGenFooter;
+}
+
+export const q_footer: TypedDocumentNode<IFooterQuery> = gql`
   ${f_button}
   ${f_media}
   query q_footer {

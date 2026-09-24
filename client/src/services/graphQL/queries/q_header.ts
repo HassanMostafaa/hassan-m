@@ -1,44 +1,35 @@
+import { f_media } from "./../fragments/base-components/f_media";
+import { f_button } from "./../fragments/base-components/f_button";
 import { IGenHeader } from "@/src/types/IGenTypes";
 import { gql, TypedDocumentNode } from "@apollo/client";
 
-export const q_header: TypedDocumentNode<{ header: IGenHeader | null }> = gql`
+interface IHeaderQuery {
+  header: IGenHeader;
+}
+
+export const q_header: TypedDocumentNode<IHeaderQuery> = gql`
+  ${f_button}
+  ${f_media}
   query q_header {
     header {
       Brand {
         Logo {
-          url
-          alternativeText
+          ...f_media
         }
         LogoSmall {
-          url
-          alternativeText
+          ...f_media
         }
       }
       HeaderNavigations {
         Items {
-          id
-          buttonText
-          buttonUrl
-          variant
-          style
-          isExternalUrl
+          ...f_button
         }
       }
       PrimaryAction {
-        id
-        buttonText
-        buttonUrl
-        variant
-        style
-        isExternalUrl
+        ...f_button
       }
       SecondaryAction {
-        id
-        buttonText
-        buttonUrl
-        variant
-        style
-        isExternalUrl
+        ...f_button
       }
       createdAt
       documentId

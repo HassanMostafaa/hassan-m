@@ -31,8 +31,8 @@
       "type": "dynamiczone",
       "components": [
         "components.hero-section",
-        "components.grid-cards",
-        "components.featured-projects"
+        "components.featured-projects",
+        "components.grid-cards"
       ]
     }
   }

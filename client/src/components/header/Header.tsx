@@ -20,7 +20,7 @@ export function Header({
 
   return (
     <>
-      <header className="sticky mt-6 bg-primary/5 border-primary/30 border w-full max-w-xl items-center backdrop-blur-2xl p-2 flex gap-4 justify-between mx-auto top-0 z-50">
+      <header className="sticky sm:mt-6 bg-primary/5 border-primary/30 border w-full max-w-xl items-center backdrop-blur-lg p-2 flex gap-4 justify-between mx-auto top-0 sm:top-6 z-50">
         {Brand && <BrandComponent {...Brand} desktopSize={100} />}
 
         <nav className="hidden sm:flex items-center gap-4">

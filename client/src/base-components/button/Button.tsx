@@ -1,14 +1,29 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { FunctionComponent, ReactNode } from "react";
+import {
+  ButtonHTMLAttributes,
+  FunctionComponent,
+  MouseEventHandler,
+  ReactNode,
+} from "react";
 
 import { IGenComponentBaseComponentsButton } from "@/src/types/IGenTypes";
 import { cn } from "@/src/utils/cn";
+import { usePathname } from "next/navigation";
 
-interface ButtonProps extends IGenComponentBaseComponentsButton {
+type NativeButtonProps = Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  keyof IGenComponentBaseComponentsButton | "className" | "onClick"
+>;
+
+interface ButtonProps
+  extends IGenComponentBaseComponentsButton, NativeButtonProps {
   className?: string;
   staticStartIcon?: ReactNode;
   staticEndIcon?: ReactNode;
+  // Typed against HTMLElement so the same handler works on <button>, <a> and <Link>
+  onClick?: MouseEventHandler<HTMLElement>;
 }
 
 export const Button: FunctionComponent<ButtonProps> = ({
@@ -23,6 +38,8 @@ export const Button: FunctionComponent<ButtonProps> = ({
   staticEndIcon,
   className,
 }) => {
+  const pathname = usePathname();
+  const isActiveLink = pathname === buttonUrl;
   const content = (
     <>
       {staticStartIcon ??
@@ -62,6 +79,12 @@ export const Button: FunctionComponent<ButtonProps> = ({
 
   const linkClassName = cn(
     "w-fit inline-flex items-center hover:text-primary-hover gap-2 cursor-pointer",
+    buttonUrl && [
+      // animated indicator bar
+      "relative after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:origin-left",
+      "after:bg-primary after:transition-transform after:duration-300 after:ease-out motion-reduce:after:transition-none",
+      isActiveLink ? "text-primary after:scale-x-100" : "after:scale-x-0",
+    ],
     className,
   );
 
@@ -107,7 +130,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
         href={buttonUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className={linkClassName}
+        className={cn(linkClassName)}
       >
         {content}
       </a>
@@ -115,7 +138,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
   }
 
   return (
-    <Link href={buttonUrl} className={linkClassName}>
+    <Link href={buttonUrl} className={cn(linkClassName)}>
       {content}
     </Link>
   );
