@@ -36,3 +36,4 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 RESOURCES FOR ICONS.PNG ASSETS [https://zonalogo.com/linkedin-logo-png-svg]
+https://lucide.dev/icons inline icons

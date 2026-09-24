@@ -33,6 +33,20 @@ export interface BaseComponentsButton extends Struct.ComponentSchema {
   };
 }
 
+export interface BaseComponentsProjectInfoCard extends Struct.ComponentSchema {
+  collectionName: 'components_base_components_project_info_cards';
+  info: {
+    displayName: 'ProjectInfoCard';
+  };
+  attributes: {
+    isClickableCard: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+    value: Schema.Attribute.Text;
+  };
+}
+
 export interface BaseComponentsProjectTeaserCard
   extends Struct.ComponentSchema {
   collectionName: 'components_base_components_project_teaser_cards';
@@ -102,6 +116,21 @@ export interface ComponentsHeroSection extends Struct.ComponentSchema {
   };
 }
 
+export interface ComponentsSelfTeaser extends Struct.ComponentSchema {
+  collectionName: 'components_components_self_teasers';
+  info: {
+    displayName: 'SelfTeaser';
+    icon: 'bulletList';
+  };
+  attributes: {
+    actionButton: Schema.Attribute.Component<'base-components.button', false>;
+    description: Schema.Attribute.Blocks;
+    marqueeText: Schema.Attribute.String;
+    sectionTeaserText: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface HeaderComponenetsHeaderNavigations
   extends Struct.ComponentSchema {
   collectionName: 'components_header_componenets_header_navigations';
@@ -132,11 +161,13 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'base-components.brand-logo': BaseComponentsBrandLogo;
       'base-components.button': BaseComponentsButton;
+      'base-components.project-info-card': BaseComponentsProjectInfoCard;
       'base-components.project-teaser-card': BaseComponentsProjectTeaserCard;
       'base-components.simple-card': BaseComponentsSimpleCard;
       'components.featured-projects': ComponentsFeaturedProjects;
       'components.grid-cards': ComponentsGridCards;
       'components.hero-section': ComponentsHeroSection;
+      'components.self-teaser': ComponentsSelfTeaser;
       'header-componenets.header-navigations': HeaderComponenetsHeaderNavigations;
       'meta-components.seo': MetaComponentsSeo;
     }

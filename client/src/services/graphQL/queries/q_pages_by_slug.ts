@@ -1,3 +1,4 @@
+import { f_self_teaser } from "./../fragments/components/f_self_teaser";
 import { f_featured_projects } from "./../fragments/components/f_featured_projects";
 import { gql, TypedDocumentNode } from "@apollo/client";
 import { f_seo } from "../fragments/f_seo";
@@ -16,6 +17,7 @@ export const q_pages_by_slug: TypedDocumentNode<
   ${f_hero_section}
   ${f_simple_cards_grid}
   ${f_featured_projects}
+  ${f_self_teaser}
 
   query q_pages_by_slug($filters: PageFiltersInput) {
     pages(filters: $filters) {
@@ -29,6 +31,7 @@ export const q_pages_by_slug: TypedDocumentNode<
         ...f_hero_section
         ...f_simple_cards_grid
         ...f_featured_projects
+        ...f_self_teaser
       }
       createdAt
       updatedAt

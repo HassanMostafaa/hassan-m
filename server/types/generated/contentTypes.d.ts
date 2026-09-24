@@ -571,6 +571,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'components.hero-section',
         'components.featured-projects',
         'components.grid-cards',
+        'components.self-teaser',
       ]
     >;
     seo: Schema.Attribute.Component<'meta-components.seo', false>;
@@ -581,6 +582,47 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         minLength: 3;
       }>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProjectProject extends Struct.CollectionTypeSchema {
+  collectionName: 'projects';
+  info: {
+    displayName: 'Projects';
+    pluralName: 'projects';
+    singularName: 'project';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks;
+    fullTitle: Schema.Attribute.String;
+    infoCards: Schema.Attribute.Component<
+      'base-components.project-info-card',
+      true
+    >;
+    infoDescription: Schema.Attribute.Blocks;
+    infoDescriptionCard: Schema.Attribute.Blocks;
+    infoTitle: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::project.project'
+    > &
+      Schema.Attribute.Private;
+    mainImage: Schema.Attribute.Media<'images'>;
+    moreDetailsButton: Schema.Attribute.Component<
+      'base-components.button',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1102,6 +1144,7 @@ declare module '@strapi/strapi' {
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::page.page': ApiPagePage;
+      'api::project.project': ApiProjectProject;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

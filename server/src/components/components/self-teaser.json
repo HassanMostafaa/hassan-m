@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_components_self_teasers",
+  "info": {
+    "displayName": "SelfTeaser",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "marqueeText": {
+      "type": "string"
+    },
+    "sectionTeaserText": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "actionButton": {
+      "type": "component",
+      "component": "base-components.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

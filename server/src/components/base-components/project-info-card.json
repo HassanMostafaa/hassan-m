@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_base_components_project_info_cards",
+  "info": {
+    "displayName": "ProjectInfoCard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "value": {
+      "type": "text"
+    },
+    "url": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isClickableCard"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "isClickableCard": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}

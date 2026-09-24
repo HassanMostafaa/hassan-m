@@ -32,7 +32,8 @@
       "components": [
         "components.hero-section",
         "components.featured-projects",
-        "components.grid-cards"
+        "components.grid-cards",
+        "components.self-teaser"
       ]
     }
   }
