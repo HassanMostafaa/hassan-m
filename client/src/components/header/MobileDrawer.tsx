@@ -43,15 +43,15 @@ export function MobileDrawer({
         {/* Links */}
         <nav className="flex flex-col gap-4">
           {HeaderNavigations?.Items?.map((item) => {
-            if (!item?.ButtonUrl) return null;
+            if (!item?.buttonUrl) return null;
             return (
               <Link
                 key={item.id}
-                href={item.ButtonUrl}
+                href={item.buttonUrl}
                 className="text-lg"
                 onClick={onClose}
               >
-                {item.ButtonText}
+                {item.buttonText}
               </Link>
             );
           })}
@@ -59,16 +59,16 @@ export function MobileDrawer({
 
         {/* Actions */}
         <div className="flex flex-col gap-3 mt-4">
-          {SecondaryAction?.ButtonText && (
+          {SecondaryAction?.buttonText && (
             <Button
               {...SecondaryAction}
-              endIcon={
+              staticEndIcon={
                 <File className="text-primary" size={18} strokeWidth={1} />
               }
               className="w-full justify-center"
             />
           )}
-          {PrimaryAction?.ButtonText && (
+          {PrimaryAction?.buttonText && (
             <Button {...PrimaryAction} className="w-full justify-center" />
           )}
         </div>

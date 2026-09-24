@@ -57,32 +57,57 @@ export type IGenComponentBaseComponentsBrandLogoInput = {
 
 export type IGenComponentBaseComponentsButton = {
   __typename?: 'ComponentBaseComponentsButton';
-  ButtonText: Scalars['String']['output'];
-  ButtonUrl?: Maybe<Scalars['String']['output']>;
-  ExternalUrl?: Maybe<Scalars['Boolean']['output']>;
-  Style?: Maybe<IGenEnum_Componentbasecomponentsbutton_Style>;
-  Variant: IGenEnum_Componentbasecomponentsbutton_Variant;
+  buttonText: Scalars['String']['output'];
+  buttonUrl?: Maybe<Scalars['String']['output']>;
+  endIcon?: Maybe<IGenUploadFile>;
   id: Scalars['ID']['output'];
+  isExternalUrl?: Maybe<Scalars['Boolean']['output']>;
+  startIcon?: Maybe<IGenUploadFile>;
+  style?: Maybe<IGenEnum_Componentbasecomponentsbutton_Style>;
+  variant: IGenEnum_Componentbasecomponentsbutton_Variant;
+  withIcons?: Maybe<Scalars['Boolean']['output']>;
 };
 
 export type IGenComponentBaseComponentsButtonFiltersInput = {
-  ButtonText?: InputMaybe<IGenStringFilterInput>;
-  ButtonUrl?: InputMaybe<IGenStringFilterInput>;
-  ExternalUrl?: InputMaybe<IGenBooleanFilterInput>;
-  Style?: InputMaybe<IGenStringFilterInput>;
-  Variant?: InputMaybe<IGenStringFilterInput>;
   and?: InputMaybe<Array<InputMaybe<IGenComponentBaseComponentsButtonFiltersInput>>>;
+  buttonText?: InputMaybe<IGenStringFilterInput>;
+  buttonUrl?: InputMaybe<IGenStringFilterInput>;
+  isExternalUrl?: InputMaybe<IGenBooleanFilterInput>;
   not?: InputMaybe<IGenComponentBaseComponentsButtonFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<IGenComponentBaseComponentsButtonFiltersInput>>>;
+  style?: InputMaybe<IGenStringFilterInput>;
+  variant?: InputMaybe<IGenStringFilterInput>;
+  withIcons?: InputMaybe<IGenBooleanFilterInput>;
 };
 
 export type IGenComponentBaseComponentsButtonInput = {
-  ButtonText?: InputMaybe<Scalars['String']['input']>;
-  ButtonUrl?: InputMaybe<Scalars['String']['input']>;
-  ExternalUrl?: InputMaybe<Scalars['Boolean']['input']>;
-  Style?: InputMaybe<IGenEnum_Componentbasecomponentsbutton_Style>;
-  Variant?: InputMaybe<IGenEnum_Componentbasecomponentsbutton_Variant>;
+  buttonText?: InputMaybe<Scalars['String']['input']>;
+  buttonUrl?: InputMaybe<Scalars['String']['input']>;
+  endIcon?: InputMaybe<Scalars['ID']['input']>;
   id?: InputMaybe<Scalars['ID']['input']>;
+  isExternalUrl?: InputMaybe<Scalars['Boolean']['input']>;
+  startIcon?: InputMaybe<Scalars['ID']['input']>;
+  style?: InputMaybe<IGenEnum_Componentbasecomponentsbutton_Style>;
+  variant?: InputMaybe<IGenEnum_Componentbasecomponentsbutton_Variant>;
+  withIcons?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type IGenComponentBaseComponentsProjectTeaserCard = {
+  __typename?: 'ComponentBaseComponentsProjectTeaserCard';
+  Image?: Maybe<IGenUploadFile>;
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  projectUrl: Scalars['String']['output'];
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+export type IGenComponentBaseComponentsProjectTeaserCardFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<IGenComponentBaseComponentsProjectTeaserCardFiltersInput>>>;
+  description?: InputMaybe<IGenStringFilterInput>;
+  not?: InputMaybe<IGenComponentBaseComponentsProjectTeaserCardFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<IGenComponentBaseComponentsProjectTeaserCardFiltersInput>>>;
+  projectUrl?: InputMaybe<IGenStringFilterInput>;
+  title?: InputMaybe<IGenStringFilterInput>;
 };
 
 export type IGenComponentBaseComponentsSimpleCard = {
@@ -100,6 +125,21 @@ export type IGenComponentBaseComponentsSimpleCardFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<IGenComponentBaseComponentsSimpleCardFiltersInput>>>;
   not?: InputMaybe<IGenComponentBaseComponentsSimpleCardFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<IGenComponentBaseComponentsSimpleCardFiltersInput>>>;
+};
+
+export type IGenComponentComponentsFeaturedProjects = {
+  __typename?: 'ComponentComponentsFeaturedProjects';
+  Items?: Maybe<Array<Maybe<IGenComponentBaseComponentsProjectTeaserCard>>>;
+  id: Scalars['ID']['output'];
+  seeAllButton?: Maybe<IGenComponentBaseComponentsButton>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type IGenComponentComponentsFeaturedProjectsItemsArgs = {
+  filters?: InputMaybe<IGenComponentBaseComponentsProjectTeaserCardFiltersInput>;
+  pagination?: InputMaybe<IGenPaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type IGenComponentComponentsGridCards = {
@@ -248,7 +288,42 @@ export type IGenFloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IGenGenericMorph = IGenComponentBaseComponentsBrandLogo | IGenComponentBaseComponentsButton | IGenComponentBaseComponentsSimpleCard | IGenComponentComponentsGridCards | IGenComponentComponentsHeroSection | IGenComponentHeaderComponenetsHeaderNavigations | IGenComponentMetaComponentsSeo | IGenHeader | IGenI18NLocale | IGenPage | IGenReviewWorkflowsWorkflow | IGenReviewWorkflowsWorkflowStage | IGenUploadFile | IGenUsersPermissionsPermission | IGenUsersPermissionsRole | IGenUsersPermissionsUser;
+export type IGenFooter = {
+  __typename?: 'Footer';
+  brand?: Maybe<IGenComponentBaseComponentsBrandLogo>;
+  copyrightsText?: Maybe<Scalars['JSON']['output']>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  documentId: Scalars['ID']['output'];
+  navigations?: Maybe<Array<Maybe<IGenComponentBaseComponentsButton>>>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  socialLinks?: Maybe<Array<Maybe<IGenComponentBaseComponentsButton>>>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type IGenFooterNavigationsArgs = {
+  filters?: InputMaybe<IGenComponentBaseComponentsButtonFiltersInput>;
+  pagination?: InputMaybe<IGenPaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type IGenFooterSocialLinksArgs = {
+  filters?: InputMaybe<IGenComponentBaseComponentsButtonFiltersInput>;
+  pagination?: InputMaybe<IGenPaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type IGenFooterInput = {
+  brand?: InputMaybe<IGenComponentBaseComponentsBrandLogoInput>;
+  copyrightsText?: InputMaybe<Scalars['JSON']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  navigations?: InputMaybe<Array<InputMaybe<IGenComponentBaseComponentsButtonInput>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  socialLinks?: InputMaybe<Array<InputMaybe<IGenComponentBaseComponentsButtonInput>>>;
+};
+
+export type IGenGenericMorph = IGenComponentBaseComponentsBrandLogo | IGenComponentBaseComponentsButton | IGenComponentBaseComponentsProjectTeaserCard | IGenComponentBaseComponentsSimpleCard | IGenComponentComponentsFeaturedProjects | IGenComponentComponentsGridCards | IGenComponentComponentsHeroSection | IGenComponentHeaderComponenetsHeaderNavigations | IGenComponentMetaComponentsSeo | IGenFooter | IGenHeader | IGenI18NLocale | IGenPage | IGenReviewWorkflowsWorkflow | IGenReviewWorkflowsWorkflowStage | IGenUploadFile | IGenUsersPermissionsPermission | IGenUsersPermissionsRole | IGenUsersPermissionsUser;
 
 export type IGenHeader = {
   __typename?: 'Header';
@@ -385,6 +460,7 @@ export type IGenMutation = {
   createUsersPermissionsRole?: Maybe<IGenUsersPermissionsCreateRolePayload>;
   /** Create a new user */
   createUsersPermissionsUser: IGenUsersPermissionsUserEntityResponse;
+  deleteFooter?: Maybe<IGenDeleteMutationResponse>;
   deleteHeader?: Maybe<IGenDeleteMutationResponse>;
   deletePage?: Maybe<IGenDeleteMutationResponse>;
   deleteReviewWorkflowsWorkflow?: Maybe<IGenDeleteMutationResponse>;
@@ -403,6 +479,7 @@ export type IGenMutation = {
   register: IGenUsersPermissionsLoginPayload;
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
   resetPassword?: Maybe<IGenUsersPermissionsLoginPayload>;
+  updateFooter?: Maybe<IGenFooter>;
   updateHeader?: Maybe<IGenHeader>;
   updatePage?: Maybe<IGenPage>;
   updateReviewWorkflowsWorkflow?: Maybe<IGenReviewWorkflowsWorkflow>;
@@ -507,6 +584,12 @@ export type IGenMutationResetPasswordArgs = {
 };
 
 
+export type IGenMutationUpdateFooterArgs = {
+  data: IGenFooterInput;
+  status?: InputMaybe<IGenPublicationStatus>;
+};
+
+
 export type IGenMutationUpdateHeaderArgs = {
   data: IGenHeaderInput;
   status?: InputMaybe<IGenPublicationStatus>;
@@ -591,7 +674,7 @@ export type IGenPageInput = {
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type IGenPageSectionsDynamicZone = IGenComponentBaseComponentsBrandLogo | IGenComponentBaseComponentsButton | IGenComponentComponentsGridCards | IGenComponentComponentsHeroSection | IGenError;
+export type IGenPageSectionsDynamicZone = IGenComponentComponentsFeaturedProjects | IGenComponentComponentsGridCards | IGenComponentComponentsHeroSection | IGenError;
 
 export type IGenPagination = {
   __typename?: 'Pagination';
@@ -626,6 +709,7 @@ export enum IGenPublicationStatus {
 
 export type IGenQuery = {
   __typename?: 'Query';
+  footer?: Maybe<IGenFooter>;
   header?: Maybe<IGenHeader>;
   i18NLocale?: Maybe<IGenI18NLocale>;
   i18NLocales: Array<Maybe<IGenI18NLocale>>;
@@ -649,6 +733,13 @@ export type IGenQuery = {
   usersPermissionsUser?: Maybe<IGenUsersPermissionsUser>;
   usersPermissionsUsers: Array<Maybe<IGenUsersPermissionsUser>>;
   usersPermissionsUsers_connection?: Maybe<IGenUsersPermissionsUserEntityResponseCollection>;
+};
+
+
+export type IGenQueryFooterArgs = {
+  hasPublishedVersion?: InputMaybe<Scalars['Boolean']['input']>;
+  publicationFilter?: InputMaybe<IGenPublicationFilter>;
+  status?: InputMaybe<IGenPublicationStatus>;
 };
 
 
@@ -1382,18 +1473,25 @@ export type IGenStringFilterInput = {
   startsWith?: string | null | undefined;
 };
 
-export type IGenF_ButtonFragment = { id: string, ButtonText: string, ButtonUrl: string | null, Variant: IGenEnum_Componentbasecomponentsbutton_Variant, Style: IGenEnum_Componentbasecomponentsbutton_Style | null, ExternalUrl: boolean | null };
+export type IGenF_ButtonFragment = { id: string, buttonText: string, buttonUrl: string | null, variant: IGenEnum_Componentbasecomponentsbutton_Variant, style: IGenEnum_Componentbasecomponentsbutton_Style | null, isExternalUrl: boolean | null, withIcons: boolean | null, startIcon: { alternativeText: string | null, size: number, url: string, ext: string | null, mime: string, focalPoint: unknown } | null, endIcon: { alternativeText: string | null, size: number, url: string, ext: string | null, mime: string, focalPoint: unknown } | null };
 
-export type IGenF_Grid_CardsFragment = { id: string, Items: Array<{ id: string, Title: string | null, Description: unknown, Action: { id: string, ButtonText: string, ButtonUrl: string | null, Variant: IGenEnum_Componentbasecomponentsbutton_Variant, Style: IGenEnum_Componentbasecomponentsbutton_Style | null, ExternalUrl: boolean | null } | null } | null> | null };
+export type IGenF_MediaFragment = { alternativeText: string | null, size: number, url: string, ext: string | null, mime: string, focalPoint: unknown };
 
-export type IGenF_Hero_SectionFragment = { id: string, tag: string | null, Title: string | null, Subtitle: unknown, CallToAction: { id: string, ButtonText: string, ButtonUrl: string | null, Variant: IGenEnum_Componentbasecomponentsbutton_Variant, Style: IGenEnum_Componentbasecomponentsbutton_Style | null, ExternalUrl: boolean | null } | null };
+export type IGenF_Grid_CardsFragment = { id: string, Items: Array<{ id: string, Title: string | null, Description: unknown, Action: { id: string, buttonText: string, buttonUrl: string | null, variant: IGenEnum_Componentbasecomponentsbutton_Variant, style: IGenEnum_Componentbasecomponentsbutton_Style | null, isExternalUrl: boolean | null, withIcons: boolean | null, startIcon: { alternativeText: string | null, size: number, url: string, ext: string | null, mime: string, focalPoint: unknown } | null, endIcon: { alternativeText: string | null, size: number, url: string, ext: string | null, mime: string, focalPoint: unknown } | null } | null } | null> | null };
+
+export type IGenF_Hero_SectionFragment = { id: string, tag: string | null, Title: string | null, Subtitle: unknown, CallToAction: { id: string, buttonText: string, buttonUrl: string | null, variant: IGenEnum_Componentbasecomponentsbutton_Variant, style: IGenEnum_Componentbasecomponentsbutton_Style | null, isExternalUrl: boolean | null, withIcons: boolean | null, startIcon: { alternativeText: string | null, size: number, url: string, ext: string | null, mime: string, focalPoint: unknown } | null, endIcon: { alternativeText: string | null, size: number, url: string, ext: string | null, mime: string, focalPoint: unknown } | null } | null };
 
 export type IGenF_SeoFragment = { id: string, canonicalUrl: string | null, metaTitle: string | null, metaDescription: string | null, noIndex: boolean | null, metaImage: { url: string } | null };
+
+export type IGenQ_FooterQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type IGenQ_FooterQuery = { footer: { copyrightsText: unknown, createdAt: unknown, documentId: string, publishedAt: unknown, updatedAt: unknown, brand: { id: string, Logo: { alternativeText: string | null, size: number, url: string, ext: string | null, mime: string, focalPoint: unknown } | null, LogoSmall: { alternativeText: string | null, size: number, url: string, ext: string | null, mime: string, focalPoint: unknown } | null } | null, navigations: Array<{ id: string, buttonText: string, buttonUrl: string | null, variant: IGenEnum_Componentbasecomponentsbutton_Variant, style: IGenEnum_Componentbasecomponentsbutton_Style | null, isExternalUrl: boolean | null, withIcons: boolean | null, startIcon: { alternativeText: string | null, size: number, url: string, ext: string | null, mime: string, focalPoint: unknown } | null, endIcon: { alternativeText: string | null, size: number, url: string, ext: string | null, mime: string, focalPoint: unknown } | null } | null> | null, socialLinks: Array<{ id: string, buttonText: string, buttonUrl: string | null, variant: IGenEnum_Componentbasecomponentsbutton_Variant, style: IGenEnum_Componentbasecomponentsbutton_Style | null, isExternalUrl: boolean | null, withIcons: boolean | null, startIcon: { alternativeText: string | null, size: number, url: string, ext: string | null, mime: string, focalPoint: unknown } | null, endIcon: { alternativeText: string | null, size: number, url: string, ext: string | null, mime: string, focalPoint: unknown } | null } | null> | null } | null };
 
 export type IGenQ_HeaderQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IGenQ_HeaderQuery = { header: { createdAt: unknown, documentId: string, publishedAt: unknown, updatedAt: unknown, Brand: { Logo: { url: string, alternativeText: string | null } | null, LogoSmall: { url: string, alternativeText: string | null } | null } | null, HeaderNavigations: { Items: Array<{ id: string, ButtonText: string, ButtonUrl: string | null, Variant: IGenEnum_Componentbasecomponentsbutton_Variant, Style: IGenEnum_Componentbasecomponentsbutton_Style | null, ExternalUrl: boolean | null } | null> | null } | null, PrimaryAction: { id: string, ButtonText: string, ButtonUrl: string | null, Variant: IGenEnum_Componentbasecomponentsbutton_Variant, Style: IGenEnum_Componentbasecomponentsbutton_Style | null, ExternalUrl: boolean | null } | null, SecondaryAction: { id: string, ButtonText: string, ButtonUrl: string | null, Variant: IGenEnum_Componentbasecomponentsbutton_Variant, Style: IGenEnum_Componentbasecomponentsbutton_Style | null, ExternalUrl: boolean | null } | null } | null };
+export type IGenQ_HeaderQuery = { header: { createdAt: unknown, documentId: string, publishedAt: unknown, updatedAt: unknown, Brand: { Logo: { url: string, alternativeText: string | null } | null, LogoSmall: { url: string, alternativeText: string | null } | null } | null, HeaderNavigations: { Items: Array<{ id: string, buttonText: string, buttonUrl: string | null, variant: IGenEnum_Componentbasecomponentsbutton_Variant, style: IGenEnum_Componentbasecomponentsbutton_Style | null, isExternalUrl: boolean | null } | null> | null } | null, PrimaryAction: { id: string, buttonText: string, buttonUrl: string | null, variant: IGenEnum_Componentbasecomponentsbutton_Variant, style: IGenEnum_Componentbasecomponentsbutton_Style | null, isExternalUrl: boolean | null } | null, SecondaryAction: { id: string, buttonText: string, buttonUrl: string | null, variant: IGenEnum_Componentbasecomponentsbutton_Variant, style: IGenEnum_Componentbasecomponentsbutton_Style | null, isExternalUrl: boolean | null } | null } | null };
 
 export type IGenQ_Pages_By_SlugQueryVariables = Exact<{
   filters?: IGenPageFiltersInput | null | undefined;
@@ -1401,14 +1499,16 @@ export type IGenQ_Pages_By_SlugQueryVariables = Exact<{
 
 
 export type IGenQ_Pages_By_SlugQuery = { pages: Array<{ documentId: string, title: string, slug: string, createdAt: unknown, updatedAt: unknown, publishedAt: unknown, seo: { id: string, canonicalUrl: string | null, metaTitle: string | null, metaDescription: string | null, noIndex: boolean | null, metaImage: { url: string } | null } | null, sections: Array<
-      | { id: string, Items: Array<{ id: string, Title: string | null, Description: unknown, Action: { id: string, ButtonText: string, ButtonUrl: string | null, Variant: IGenEnum_Componentbasecomponentsbutton_Variant, Style: IGenEnum_Componentbasecomponentsbutton_Style | null, ExternalUrl: boolean | null } | null } | null> | null }
-      | { id: string, tag: string | null, Title: string | null, Subtitle: unknown, CallToAction: { id: string, ButtonText: string, ButtonUrl: string | null, Variant: IGenEnum_Componentbasecomponentsbutton_Variant, Style: IGenEnum_Componentbasecomponentsbutton_Style | null, ExternalUrl: boolean | null } | null }
+      | { id: string, Items: Array<{ id: string, Title: string | null, Description: unknown, Action: { id: string, buttonText: string, buttonUrl: string | null, variant: IGenEnum_Componentbasecomponentsbutton_Variant, style: IGenEnum_Componentbasecomponentsbutton_Style | null, isExternalUrl: boolean | null, withIcons: boolean | null, startIcon: { alternativeText: string | null, size: number, url: string, ext: string | null, mime: string, focalPoint: unknown } | null, endIcon: { alternativeText: string | null, size: number, url: string, ext: string | null, mime: string, focalPoint: unknown } | null } | null } | null> | null }
+      | { id: string, tag: string | null, Title: string | null, Subtitle: unknown, CallToAction: { id: string, buttonText: string, buttonUrl: string | null, variant: IGenEnum_Componentbasecomponentsbutton_Variant, style: IGenEnum_Componentbasecomponentsbutton_Style | null, isExternalUrl: boolean | null, withIcons: boolean | null, startIcon: { alternativeText: string | null, size: number, url: string, ext: string | null, mime: string, focalPoint: unknown } | null, endIcon: { alternativeText: string | null, size: number, url: string, ext: string | null, mime: string, focalPoint: unknown } | null } | null }
       | Record<PropertyKey, never>
      | null> | null } | null> };
 
-export const F_ButtonFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_button"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentBaseComponentsButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"ButtonText"}},{"kind":"Field","name":{"kind":"Name","value":"ButtonUrl"}},{"kind":"Field","name":{"kind":"Name","value":"Variant"}},{"kind":"Field","name":{"kind":"Name","value":"Style"}},{"kind":"Field","name":{"kind":"Name","value":"ExternalUrl"}}]}}]} as unknown as DocumentNode<IGenF_ButtonFragment, unknown>;
-export const F_Grid_CardsFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_grid_cards"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsGridCards"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"Items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"Title"}},{"kind":"Field","name":{"kind":"Name","value":"Description"}},{"kind":"Field","name":{"kind":"Name","value":"Action"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_button"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_button"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentBaseComponentsButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"ButtonText"}},{"kind":"Field","name":{"kind":"Name","value":"ButtonUrl"}},{"kind":"Field","name":{"kind":"Name","value":"Variant"}},{"kind":"Field","name":{"kind":"Name","value":"Style"}},{"kind":"Field","name":{"kind":"Name","value":"ExternalUrl"}}]}}]} as unknown as DocumentNode<IGenF_Grid_CardsFragment, unknown>;
-export const F_Hero_SectionFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_hero_section"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsHeroSection"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"tag"}},{"kind":"Field","name":{"kind":"Name","value":"Title"}},{"kind":"Field","name":{"kind":"Name","value":"Subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"CallToAction"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_button"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_button"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentBaseComponentsButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"ButtonText"}},{"kind":"Field","name":{"kind":"Name","value":"ButtonUrl"}},{"kind":"Field","name":{"kind":"Name","value":"Variant"}},{"kind":"Field","name":{"kind":"Name","value":"Style"}},{"kind":"Field","name":{"kind":"Name","value":"ExternalUrl"}}]}}]} as unknown as DocumentNode<IGenF_Hero_SectionFragment, unknown>;
+export const F_MediaFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_media"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UploadFile"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"alternativeText"}},{"kind":"Field","name":{"kind":"Name","value":"size"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"ext"}},{"kind":"Field","name":{"kind":"Name","value":"mime"}},{"kind":"Field","name":{"kind":"Name","value":"focalPoint"}}]}}]} as unknown as DocumentNode<IGenF_MediaFragment, unknown>;
+export const F_ButtonFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_button"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentBaseComponentsButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"buttonText"}},{"kind":"Field","name":{"kind":"Name","value":"buttonUrl"}},{"kind":"Field","name":{"kind":"Name","value":"variant"}},{"kind":"Field","name":{"kind":"Name","value":"style"}},{"kind":"Field","name":{"kind":"Name","value":"isExternalUrl"}},{"kind":"Field","name":{"kind":"Name","value":"withIcons"}},{"kind":"Field","name":{"kind":"Name","value":"startIcon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_media"}}]}},{"kind":"Field","name":{"kind":"Name","value":"endIcon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_media"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_media"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UploadFile"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"alternativeText"}},{"kind":"Field","name":{"kind":"Name","value":"size"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"ext"}},{"kind":"Field","name":{"kind":"Name","value":"mime"}},{"kind":"Field","name":{"kind":"Name","value":"focalPoint"}}]}}]} as unknown as DocumentNode<IGenF_ButtonFragment, unknown>;
+export const F_Grid_CardsFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_grid_cards"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsGridCards"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"Items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"Title"}},{"kind":"Field","name":{"kind":"Name","value":"Description"}},{"kind":"Field","name":{"kind":"Name","value":"Action"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_button"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_media"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UploadFile"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"alternativeText"}},{"kind":"Field","name":{"kind":"Name","value":"size"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"ext"}},{"kind":"Field","name":{"kind":"Name","value":"mime"}},{"kind":"Field","name":{"kind":"Name","value":"focalPoint"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_button"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentBaseComponentsButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"buttonText"}},{"kind":"Field","name":{"kind":"Name","value":"buttonUrl"}},{"kind":"Field","name":{"kind":"Name","value":"variant"}},{"kind":"Field","name":{"kind":"Name","value":"style"}},{"kind":"Field","name":{"kind":"Name","value":"isExternalUrl"}},{"kind":"Field","name":{"kind":"Name","value":"withIcons"}},{"kind":"Field","name":{"kind":"Name","value":"startIcon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_media"}}]}},{"kind":"Field","name":{"kind":"Name","value":"endIcon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_media"}}]}}]}}]} as unknown as DocumentNode<IGenF_Grid_CardsFragment, unknown>;
+export const F_Hero_SectionFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_hero_section"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsHeroSection"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"tag"}},{"kind":"Field","name":{"kind":"Name","value":"Title"}},{"kind":"Field","name":{"kind":"Name","value":"Subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"CallToAction"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_button"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_media"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UploadFile"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"alternativeText"}},{"kind":"Field","name":{"kind":"Name","value":"size"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"ext"}},{"kind":"Field","name":{"kind":"Name","value":"mime"}},{"kind":"Field","name":{"kind":"Name","value":"focalPoint"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_button"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentBaseComponentsButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"buttonText"}},{"kind":"Field","name":{"kind":"Name","value":"buttonUrl"}},{"kind":"Field","name":{"kind":"Name","value":"variant"}},{"kind":"Field","name":{"kind":"Name","value":"style"}},{"kind":"Field","name":{"kind":"Name","value":"isExternalUrl"}},{"kind":"Field","name":{"kind":"Name","value":"withIcons"}},{"kind":"Field","name":{"kind":"Name","value":"startIcon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_media"}}]}},{"kind":"Field","name":{"kind":"Name","value":"endIcon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_media"}}]}}]}}]} as unknown as DocumentNode<IGenF_Hero_SectionFragment, unknown>;
 export const F_SeoFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_seo"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentMetaComponentsSeo"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"canonicalUrl"}},{"kind":"Field","name":{"kind":"Name","value":"metaTitle"}},{"kind":"Field","name":{"kind":"Name","value":"metaDescription"}},{"kind":"Field","name":{"kind":"Name","value":"noIndex"}},{"kind":"Field","name":{"kind":"Name","value":"metaImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]} as unknown as DocumentNode<IGenF_SeoFragment, unknown>;
-export const Q_HeaderDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"q_header"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"header"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Brand"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Logo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"alternativeText"}}]}},{"kind":"Field","name":{"kind":"Name","value":"LogoSmall"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"alternativeText"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"HeaderNavigations"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"ButtonText"}},{"kind":"Field","name":{"kind":"Name","value":"ButtonUrl"}},{"kind":"Field","name":{"kind":"Name","value":"Variant"}},{"kind":"Field","name":{"kind":"Name","value":"Style"}},{"kind":"Field","name":{"kind":"Name","value":"ExternalUrl"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"PrimaryAction"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"ButtonText"}},{"kind":"Field","name":{"kind":"Name","value":"ButtonUrl"}},{"kind":"Field","name":{"kind":"Name","value":"Variant"}},{"kind":"Field","name":{"kind":"Name","value":"Style"}},{"kind":"Field","name":{"kind":"Name","value":"ExternalUrl"}}]}},{"kind":"Field","name":{"kind":"Name","value":"SecondaryAction"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"ButtonText"}},{"kind":"Field","name":{"kind":"Name","value":"ButtonUrl"}},{"kind":"Field","name":{"kind":"Name","value":"Variant"}},{"kind":"Field","name":{"kind":"Name","value":"Style"}},{"kind":"Field","name":{"kind":"Name","value":"ExternalUrl"}}]}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<IGenQ_HeaderQuery, IGenQ_HeaderQueryVariables>;
-export const Q_Pages_By_SlugDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"q_pages_by_slug"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"filters"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PageFiltersInput"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"pages"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"Variable","name":{"kind":"Name","value":"filters"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"seo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_seo"}}]}},{"kind":"Field","name":{"kind":"Name","value":"sections"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_hero_section"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_grid_cards"}}]}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_button"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentBaseComponentsButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"ButtonText"}},{"kind":"Field","name":{"kind":"Name","value":"ButtonUrl"}},{"kind":"Field","name":{"kind":"Name","value":"Variant"}},{"kind":"Field","name":{"kind":"Name","value":"Style"}},{"kind":"Field","name":{"kind":"Name","value":"ExternalUrl"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_seo"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentMetaComponentsSeo"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"canonicalUrl"}},{"kind":"Field","name":{"kind":"Name","value":"metaTitle"}},{"kind":"Field","name":{"kind":"Name","value":"metaDescription"}},{"kind":"Field","name":{"kind":"Name","value":"noIndex"}},{"kind":"Field","name":{"kind":"Name","value":"metaImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_hero_section"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsHeroSection"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"tag"}},{"kind":"Field","name":{"kind":"Name","value":"Title"}},{"kind":"Field","name":{"kind":"Name","value":"Subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"CallToAction"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_button"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_grid_cards"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsGridCards"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"Items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"Title"}},{"kind":"Field","name":{"kind":"Name","value":"Description"}},{"kind":"Field","name":{"kind":"Name","value":"Action"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_button"}}]}}]}}]}}]} as unknown as DocumentNode<IGenQ_Pages_By_SlugQuery, IGenQ_Pages_By_SlugQueryVariables>;
+export const Q_FooterDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"q_footer"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"footer"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"brand"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"Logo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_media"}}]}},{"kind":"Field","name":{"kind":"Name","value":"LogoSmall"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_media"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"copyrightsText"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"navigations"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_button"}}]}},{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}},{"kind":"Field","name":{"kind":"Name","value":"socialLinks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_button"}}]}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_media"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UploadFile"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"alternativeText"}},{"kind":"Field","name":{"kind":"Name","value":"size"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"ext"}},{"kind":"Field","name":{"kind":"Name","value":"mime"}},{"kind":"Field","name":{"kind":"Name","value":"focalPoint"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_button"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentBaseComponentsButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"buttonText"}},{"kind":"Field","name":{"kind":"Name","value":"buttonUrl"}},{"kind":"Field","name":{"kind":"Name","value":"variant"}},{"kind":"Field","name":{"kind":"Name","value":"style"}},{"kind":"Field","name":{"kind":"Name","value":"isExternalUrl"}},{"kind":"Field","name":{"kind":"Name","value":"withIcons"}},{"kind":"Field","name":{"kind":"Name","value":"startIcon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_media"}}]}},{"kind":"Field","name":{"kind":"Name","value":"endIcon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_media"}}]}}]}}]} as unknown as DocumentNode<IGenQ_FooterQuery, IGenQ_FooterQueryVariables>;
+export const Q_HeaderDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"q_header"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"header"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Brand"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Logo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"alternativeText"}}]}},{"kind":"Field","name":{"kind":"Name","value":"LogoSmall"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"alternativeText"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"HeaderNavigations"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"buttonText"}},{"kind":"Field","name":{"kind":"Name","value":"buttonUrl"}},{"kind":"Field","name":{"kind":"Name","value":"variant"}},{"kind":"Field","name":{"kind":"Name","value":"style"}},{"kind":"Field","name":{"kind":"Name","value":"isExternalUrl"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"PrimaryAction"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"buttonText"}},{"kind":"Field","name":{"kind":"Name","value":"buttonUrl"}},{"kind":"Field","name":{"kind":"Name","value":"variant"}},{"kind":"Field","name":{"kind":"Name","value":"style"}},{"kind":"Field","name":{"kind":"Name","value":"isExternalUrl"}}]}},{"kind":"Field","name":{"kind":"Name","value":"SecondaryAction"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"buttonText"}},{"kind":"Field","name":{"kind":"Name","value":"buttonUrl"}},{"kind":"Field","name":{"kind":"Name","value":"variant"}},{"kind":"Field","name":{"kind":"Name","value":"style"}},{"kind":"Field","name":{"kind":"Name","value":"isExternalUrl"}}]}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<IGenQ_HeaderQuery, IGenQ_HeaderQueryVariables>;
+export const Q_Pages_By_SlugDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"q_pages_by_slug"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"filters"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PageFiltersInput"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"pages"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"Variable","name":{"kind":"Name","value":"filters"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"seo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_seo"}}]}},{"kind":"Field","name":{"kind":"Name","value":"sections"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_hero_section"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_grid_cards"}}]}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_media"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UploadFile"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"alternativeText"}},{"kind":"Field","name":{"kind":"Name","value":"size"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"ext"}},{"kind":"Field","name":{"kind":"Name","value":"mime"}},{"kind":"Field","name":{"kind":"Name","value":"focalPoint"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_button"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentBaseComponentsButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"buttonText"}},{"kind":"Field","name":{"kind":"Name","value":"buttonUrl"}},{"kind":"Field","name":{"kind":"Name","value":"variant"}},{"kind":"Field","name":{"kind":"Name","value":"style"}},{"kind":"Field","name":{"kind":"Name","value":"isExternalUrl"}},{"kind":"Field","name":{"kind":"Name","value":"withIcons"}},{"kind":"Field","name":{"kind":"Name","value":"startIcon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_media"}}]}},{"kind":"Field","name":{"kind":"Name","value":"endIcon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_media"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_seo"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentMetaComponentsSeo"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"canonicalUrl"}},{"kind":"Field","name":{"kind":"Name","value":"metaTitle"}},{"kind":"Field","name":{"kind":"Name","value":"metaDescription"}},{"kind":"Field","name":{"kind":"Name","value":"noIndex"}},{"kind":"Field","name":{"kind":"Name","value":"metaImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_hero_section"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsHeroSection"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"tag"}},{"kind":"Field","name":{"kind":"Name","value":"Title"}},{"kind":"Field","name":{"kind":"Name","value":"Subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"CallToAction"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_button"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"f_grid_cards"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsGridCards"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"Items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"Title"}},{"kind":"Field","name":{"kind":"Name","value":"Description"}},{"kind":"Field","name":{"kind":"Name","value":"Action"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"f_button"}}]}}]}}]}}]} as unknown as DocumentNode<IGenQ_Pages_By_SlugQuery, IGenQ_Pages_By_SlugQueryVariables>;

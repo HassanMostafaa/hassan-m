@@ -14,7 +14,7 @@ export const HeroSection: FunctionComponent<
   }
 
   return (
-    <section className="flex max-w-5xl max-md:py-10 mx-auto min-h-[50vh] flex-col gap-4 items-center justify-center text-center">
+    <section className="flex max-w-5xl! container flex-col gap-4 items-center justify-center text-center">
       {tag && (
         <span className="flex gap-2 items-center text-primary">
           <Globe /> {tag}
@@ -30,11 +30,11 @@ export const HeroSection: FunctionComponent<
       {/* CONDITIONALLY RENDERED INSIDE */}
       <RichTextRenderer content={Subtitle as BlocksContent} />
 
-      {CallToAction?.ButtonText && (
+      {CallToAction?.buttonText && (
         <Button
           {...CallToAction}
           className="group inline-flex mx-auto items-center gap-3"
-          startIcon={
+          staticStartIcon={
             <span className="inline-flex rounded-full border border-border bg-primary/10 p-2">
               <MoveUpRight
                 className="transition-transform duration-300 group-hover:rotate-135 text-primary"

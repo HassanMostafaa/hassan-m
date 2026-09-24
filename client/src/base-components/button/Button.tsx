@@ -1,29 +1,51 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FunctionComponent, ReactNode } from "react";
+
 import { IGenComponentBaseComponentsButton } from "@/src/types/IGenTypes";
 import { cn } from "@/src/utils/cn";
 
 interface ButtonProps extends IGenComponentBaseComponentsButton {
   className?: string;
-  startIcon?: ReactNode;
-  endIcon?: ReactNode;
+  staticStartIcon?: ReactNode;
+  staticEndIcon?: ReactNode;
 }
 
 export const Button: FunctionComponent<ButtonProps> = ({
-  ButtonText,
-  Variant,
-  ButtonUrl,
-  ExternalUrl,
-  Style,
-  className,
+  buttonText,
+  variant,
+  buttonUrl,
+  isExternalUrl,
+  style,
   startIcon,
   endIcon,
+  staticStartIcon,
+  staticEndIcon,
+  className,
 }) => {
   const content = (
     <>
-      {startIcon}
-      <span>{ButtonText}</span>
-      {endIcon}
+      {staticStartIcon ??
+        (startIcon?.url && (
+          <Image
+            src={startIcon.url}
+            alt={startIcon.alternativeText ?? ""}
+            width={20}
+            height={20}
+          />
+        ))}
+
+      <span>{buttonText}</span>
+
+      {staticEndIcon ??
+        (endIcon?.url && (
+          <Image
+            src={endIcon.url}
+            alt={endIcon.alternativeText ?? ""}
+            width={20}
+            height={20}
+          />
+        ))}
     </>
   );
 
@@ -31,19 +53,24 @@ export const Button: FunctionComponent<ButtonProps> = ({
     "w-fit flex items-center cursor-pointer transition duration-300 justify-center gap-2 border p-2",
     {
       "border-primary bg-primary hover:bg-primary-hover text-black":
-        Style === "Primary",
+        style === "Primary",
       "border-primary/20 bg-primary/5 hover:bg-primary-hover/10 text-white":
-        Style === "Secondary",
+        style === "Secondary",
     },
     className,
   );
 
+  const linkClassName = cn(
+    "w-fit inline-flex items-center hover:text-primary-hover gap-2 cursor-pointer",
+    className,
+  );
+
   // Button variant with a URL = styled link
-  if (Variant === "Button" && ButtonUrl) {
-    if (ExternalUrl) {
+  if (variant === "Button" && buttonUrl) {
+    if (isExternalUrl) {
       return (
         <a
-          href={ButtonUrl}
+          href={buttonUrl}
           target="_blank"
           rel="noopener noreferrer"
           className={buttonClassName}
@@ -54,14 +81,14 @@ export const Button: FunctionComponent<ButtonProps> = ({
     }
 
     return (
-      <Link href={ButtonUrl} className={buttonClassName}>
+      <Link href={buttonUrl} className={buttonClassName}>
         {content}
       </Link>
     );
   }
 
   // Normal button
-  if (Variant === "Button") {
+  if (variant === "Button") {
     return (
       <button type="button" className={buttonClassName}>
         {content}
@@ -70,17 +97,17 @@ export const Button: FunctionComponent<ButtonProps> = ({
   }
 
   // Link variant
-  if (!ButtonUrl) {
-    return <span className={cn(className, "cursor-pointer")}>{content}</span>;
+  if (!buttonUrl) {
+    return <span className={linkClassName}>{content}</span>;
   }
 
-  if (ExternalUrl) {
+  if (isExternalUrl) {
     return (
       <a
-        href={ButtonUrl}
+        href={buttonUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className={cn(className, "cursor-pointer")}
+        className={linkClassName}
       >
         {content}
       </a>
@@ -88,7 +115,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
   }
 
   return (
-    <Link href={ButtonUrl} className={cn(className, "cursor-pointer")}>
+    <Link href={buttonUrl} className={linkClassName}>
       {content}
     </Link>
   );

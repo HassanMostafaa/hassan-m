@@ -17,16 +17,19 @@ export interface BaseComponentsButton extends Struct.ComponentSchema {
     displayName: 'Button';
   };
   attributes: {
-    ButtonText: Schema.Attribute.String &
+    buttonText: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Button'>;
-    ButtonUrl: Schema.Attribute.String;
-    ExternalUrl: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    Style: Schema.Attribute.Enumeration<['Primary', 'Secondary']> &
+    buttonUrl: Schema.Attribute.String;
+    endIcon: Schema.Attribute.Media<'images'>;
+    isExternalUrl: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    startIcon: Schema.Attribute.Media<'images'>;
+    style: Schema.Attribute.Enumeration<['Primary', 'Secondary']> &
       Schema.Attribute.DefaultTo<'Secondary'>;
-    Variant: Schema.Attribute.Enumeration<['Button', 'Link']> &
+    variant: Schema.Attribute.Enumeration<['Button', 'Link']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Button'>;
+    withIcons: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
 

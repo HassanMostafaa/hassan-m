@@ -26,6 +26,10 @@ export const Page: FunctionComponent<{
 
   return (
     <>
+      {/* header spacing */}
+      <div />
+
+      {/* sections */}
       {sections.map((section, index) => {
         if (!section?.__typename) {
           return null;

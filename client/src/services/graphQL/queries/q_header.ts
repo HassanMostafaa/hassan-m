@@ -17,28 +17,28 @@ export const q_header: TypedDocumentNode<{ header: IGenHeader | null }> = gql`
       HeaderNavigations {
         Items {
           id
-          ButtonText
-          ButtonUrl
-          Variant
-          Style
-          ExternalUrl
+          buttonText
+          buttonUrl
+          variant
+          style
+          isExternalUrl
         }
       }
       PrimaryAction {
         id
-        ButtonText
-        ButtonUrl
-        Variant
-        Style
-        ExternalUrl
+        buttonText
+        buttonUrl
+        variant
+        style
+        isExternalUrl
       }
       SecondaryAction {
         id
-        ButtonText
-        ButtonUrl
-        Variant
-        Style
-        ExternalUrl
+        buttonText
+        buttonUrl
+        variant
+        style
+        isExternalUrl
       }
       createdAt
       documentId

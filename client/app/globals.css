@@ -16,6 +16,7 @@
   --color-primary: #9bccff;
   --color-primary-hover: #cde7ff;
   --color-background: #07101f;
+  --color-background-secondary: #0f1a2a;
 
   /* Secondary */
   --color-secondary: #262626;
@@ -34,4 +35,8 @@
   --color-text-muted: #759bc3;
 
   --font-chillax: var(--font-chillax);
+}
+
+.container {
+  @apply container mx-auto max-sm:px-4;
 }

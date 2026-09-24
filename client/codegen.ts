@@ -1,8 +1,10 @@
 import "dotenv/config";
 import type { CodegenConfig } from "@graphql-codegen/cli";
 
+const apiUrl =
+  process.env.ENV === "prod" ? process.env.PROD_API_URL : process.env.API_URL;
 const config: CodegenConfig = {
-  schema: `${process.env.NODE_ENV === "development" ? process.env.API_URL : process.env.PROD_API_URL}/graphql`,
+  schema: `${apiUrl}/graphql`,
   documents: "src/services/graphql/**/*.ts",
   generates: {
     "src/types/IGenTypes.ts": {

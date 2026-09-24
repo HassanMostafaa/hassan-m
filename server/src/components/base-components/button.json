@@ -5,44 +5,72 @@
   },
   "options": {},
   "attributes": {
-    "ButtonText": {
+    "buttonText": {
       "type": "string",
       "default": "Button",
       "required": true
     },
-    "ButtonUrl": {
+    "buttonUrl": {
       "type": "string"
     },
-    "Variant": {
+    "variant": {
       "type": "enumeration",
       "required": true,
       "default": "Button",
-      "enum": [
-        "Button",
-        "Link"
-      ]
+      "enum": ["Button", "Link"]
     },
-    "Style": {
+    "style": {
       "type": "enumeration",
       "conditions": {
         "visible": {
           "==": [
             {
-              "var": "Variant"
+              "var": "variant"
             },
             "Button"
           ]
         }
       },
       "default": "Secondary",
-      "enum": [
-        "Primary",
-        "Secondary"
-      ]
+      "enum": ["Primary", "Secondary"]
     },
-    "ExternalUrl": {
+    "isExternalUrl": {
       "type": "boolean",
       "default": false
+    },
+    "withIcons": {
+      "type": "boolean",
+      "default": false
+    },
+    "startIcon": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "withIcons"
+            },
+            true
+          ]
+        }
+      },
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "endIcon": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "withIcons"
+            },
+            true
+          ]
+        }
+      },
+      "multiple": false,
+      "allowedTypes": ["images"]
     }
   },
   "config": {}
