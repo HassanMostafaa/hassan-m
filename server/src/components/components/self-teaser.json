@@ -7,13 +7,16 @@
   "options": {},
   "attributes": {
     "marqueeText": {
-      "type": "string"
+      "type": "string",
+      "default": "Let's talk"
     },
     "sectionTeaserText": {
-      "type": "string"
+      "type": "string",
+      "default": "Building something complex?"
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "default": "Let’s build a platform that lasts."
     },
     "description": {
       "type": "blocks"

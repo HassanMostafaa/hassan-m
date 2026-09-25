@@ -8,6 +8,7 @@ import {
 } from "@/src/types/IGenTypes";
 import { f_hero_section } from "../fragments/components/f_hero_section";
 import { f_simple_cards_grid } from "../fragments/components/f_grid_cards";
+import { f_contact_form } from "../fragments/components/f_contact_form";
 
 export const q_pages_by_slug: TypedDocumentNode<
   { pages: Array<IGenPage> },
@@ -18,6 +19,7 @@ export const q_pages_by_slug: TypedDocumentNode<
   ${f_simple_cards_grid}
   ${f_featured_projects}
   ${f_self_teaser}
+  ${f_contact_form}
 
   query q_pages_by_slug($filters: PageFiltersInput) {
     pages(filters: $filters) {
@@ -32,6 +34,7 @@ export const q_pages_by_slug: TypedDocumentNode<
         ...f_simple_cards_grid
         ...f_featured_projects
         ...f_self_teaser
+        ...f_contact_form
       }
       createdAt
       updatedAt

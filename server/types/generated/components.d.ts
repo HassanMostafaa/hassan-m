@@ -33,6 +33,21 @@ export interface BaseComponentsButton extends Struct.ComponentSchema {
   };
 }
 
+export interface BaseComponentsInput extends Struct.ComponentSchema {
+  collectionName: 'components_base_components_inputs';
+  info: {
+    displayName: 'input';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    placeholder: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<
+      ['text', 'password', 'email', 'textarea']
+    > &
+      Schema.Attribute.DefaultTo<'text'>;
+  };
+}
+
 export interface BaseComponentsProjectInfoCard extends Struct.ComponentSchema {
   collectionName: 'components_base_components_project_info_cards';
   info: {
@@ -71,6 +86,23 @@ export interface BaseComponentsSimpleCard extends Struct.ComponentSchema {
   attributes: {
     action: Schema.Attribute.Component<'base-components.button', false>;
     description: Schema.Attribute.Blocks;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ComponentsContactForm extends Struct.ComponentSchema {
+  collectionName: 'components_components_contact_forms';
+  info: {
+    displayName: 'ContactForm';
+    icon: 'bulletList';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks;
+    email: Schema.Attribute.String;
+    formTag: Schema.Attribute.String;
+    formTitle: Schema.Attribute.String;
+    inputs: Schema.Attribute.Component<'base-components.input', true>;
+    phone: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -125,9 +157,12 @@ export interface ComponentsSelfTeaser extends Struct.ComponentSchema {
   attributes: {
     actionButton: Schema.Attribute.Component<'base-components.button', false>;
     description: Schema.Attribute.Blocks;
-    marqueeText: Schema.Attribute.String;
-    sectionTeaserText: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    marqueeText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<"Let's talk">;
+    sectionTeaserText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Building something complex?'>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Let\u2019s build a platform that lasts.'>;
   };
 }
 
@@ -161,9 +196,11 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'base-components.brand-logo': BaseComponentsBrandLogo;
       'base-components.button': BaseComponentsButton;
+      'base-components.input': BaseComponentsInput;
       'base-components.project-info-card': BaseComponentsProjectInfoCard;
       'base-components.project-teaser-card': BaseComponentsProjectTeaserCard;
       'base-components.simple-card': BaseComponentsSimpleCard;
+      'components.contact-form': ComponentsContactForm;
       'components.featured-projects': ComponentsFeaturedProjects;
       'components.grid-cards': ComponentsGridCards;
       'components.hero-section': ComponentsHeroSection;

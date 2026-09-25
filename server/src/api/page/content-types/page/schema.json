@@ -33,7 +33,8 @@
         "components.hero-section",
         "components.featured-projects",
         "components.grid-cards",
-        "components.self-teaser"
+        "components.self-teaser",
+        "components.contact-form"
       ]
     }
   }

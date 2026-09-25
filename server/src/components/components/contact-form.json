@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_components_contact_forms",
+  "info": {
+    "displayName": "ContactForm",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "formTag": {
+      "type": "string"
+    },
+    "formTitle": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "component",
+      "component": "base-components.input",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

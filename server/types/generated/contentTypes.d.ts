@@ -572,6 +572,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'components.featured-projects',
         'components.grid-cards',
         'components.self-teaser',
+        'components.contact-form',
       ]
     >;
     seo: Schema.Attribute.Component<'meta-components.seo', false>;
