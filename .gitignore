@@ -14,8 +14,6 @@ client/out/
 client/.vercel/
 
 # -------- Strapi -------
-# server/.cache/
-# server/.tmp/
 server/build/
 server/dist/
 server/public/uploads/
