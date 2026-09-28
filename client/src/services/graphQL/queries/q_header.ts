@@ -20,10 +20,9 @@ export const q_header: TypedDocumentNode<IHeaderQuery> = gql`
           ...f_media
         }
       }
-      HeaderNavigations {
-        Items {
-          ...f_button
-        }
+      links {
+        slug
+        title
       }
       PrimaryAction {
         ...f_button

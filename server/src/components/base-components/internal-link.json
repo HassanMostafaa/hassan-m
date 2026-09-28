@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_base_components_internal_links",
+  "info": {
+    "displayName": "InternalLink"
+  },
+  "options": {},
+  "attributes": {
+    "page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page",
+      "required": true
+    }
+  },
+  "config": {}
+}

@@ -21,13 +21,13 @@
       "component": "base-components.button",
       "repeatable": true
     },
-    "navigations": {
-      "type": "component",
-      "component": "base-components.button",
-      "repeatable": true
-    },
     "copyrightsText": {
       "type": "blocks"
+    },
+    "links": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::page.page"
     }
   }
 }

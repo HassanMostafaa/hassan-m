@@ -8,7 +8,7 @@ import { IGenHeader } from "@/src/types/IGenTypes";
 interface MobileDrawerProps {
   open: boolean;
   onClose: () => void;
-  HeaderNavigations: IGenHeader["HeaderNavigations"];
+  links: IGenHeader["links"];
   PrimaryAction: IGenHeader["PrimaryAction"];
   SecondaryAction: IGenHeader["SecondaryAction"];
 }
@@ -16,7 +16,7 @@ interface MobileDrawerProps {
 export function MobileDrawer({
   open,
   onClose,
-  HeaderNavigations,
+  links,
   PrimaryAction,
   SecondaryAction,
 }: MobileDrawerProps) {
@@ -41,21 +41,23 @@ export function MobileDrawer({
         }`}
       >
         {/* Links */}
-        <nav className="flex flex-col gap-4">
-          {HeaderNavigations?.Items?.map((item) => {
-            if (!item?.buttonUrl) return null;
-            return (
-              <Link
-                key={item.id}
-                href={item.buttonUrl}
-                className="text-lg"
-                onClick={onClose}
-              >
-                {item.buttonText}
-              </Link>
-            );
-          })}
-        </nav>
+        {links && links?.length && links?.length > 0 ? (
+          <nav className="flex flex-col gap-4">
+            {links?.map((item) => {
+              if (!item?.slug) return null;
+              return (
+                <Link
+                  key={item.documentId}
+                  href={`/${item.slug}`}
+                  className="text-lg"
+                  onClick={onClose}
+                >
+                  {item.title}
+                </Link>
+              );
+            })}
+          </nav>
+        ) : null}
 
         {/* Actions */}
         <div className="flex flex-col gap-3 mt-4">

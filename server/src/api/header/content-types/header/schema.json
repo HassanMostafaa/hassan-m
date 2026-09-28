@@ -16,11 +16,6 @@
       "component": "base-components.brand-logo",
       "repeatable": false
     },
-    "HeaderNavigations": {
-      "type": "component",
-      "component": "header-componenets.header-navigations",
-      "repeatable": false
-    },
     "SecondaryAction": {
       "type": "component",
       "component": "base-components.button",
@@ -30,6 +25,11 @@
       "type": "component",
       "component": "base-components.button",
       "repeatable": false
+    },
+    "links": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::page.page"
     }
   }
 }

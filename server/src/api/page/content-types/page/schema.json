@@ -36,6 +36,9 @@
         "components.self-teaser",
         "components.contact-form"
       ]
+    },
+    "longTitle": {
+      "type": "string"
     }
   }
 }

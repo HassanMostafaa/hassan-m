@@ -48,6 +48,17 @@ export interface BaseComponentsInput extends Struct.ComponentSchema {
   };
 }
 
+export interface BaseComponentsInternalLink extends Struct.ComponentSchema {
+  collectionName: 'components_base_components_internal_links';
+  info: {
+    displayName: 'InternalLink';
+  };
+  attributes: {
+    page: Schema.Attribute.Relation<'oneToOne', 'api::page.page'> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface BaseComponentsProjectInfoCard extends Struct.ComponentSchema {
   collectionName: 'components_base_components_project_info_cards';
   info: {
@@ -197,6 +208,7 @@ declare module '@strapi/strapi' {
       'base-components.brand-logo': BaseComponentsBrandLogo;
       'base-components.button': BaseComponentsButton;
       'base-components.input': BaseComponentsInput;
+      'base-components.internal-link': BaseComponentsInternalLink;
       'base-components.project-info-card': BaseComponentsProjectInfoCard;
       'base-components.project-teaser-card': BaseComponentsProjectTeaserCard;
       'base-components.simple-card': BaseComponentsSimpleCard;

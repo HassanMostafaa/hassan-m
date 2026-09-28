@@ -12,7 +12,7 @@ import { Brand as BrandComponent } from "@/src/base-components/brand/Brand";
 
 export function Header({
   Brand,
-  HeaderNavigations,
+  links,
   PrimaryAction,
   SecondaryAction,
 }: IGenHeader) {
@@ -23,22 +23,24 @@ export function Header({
       <header className="sticky sm:mt-6 bg-primary/5 border-primary/30 border w-full max-w-xl items-center backdrop-blur-lg p-2 flex gap-4 justify-between mx-auto top-0 sm:top-6 z-50">
         {Brand && <BrandComponent {...Brand} desktopSize={100} />}
 
-        <nav className="hidden sm:flex items-center gap-4">
-          {HeaderNavigations?.Items?.map((item) => {
-            if (!item?.buttonUrl) return null;
-            return (
-              <Link
-                key={item.id}
-                className="relative hover:text-primary-hover group"
-                href={item.buttonUrl}
-              >
-                {item.buttonText}
+        {links && (
+          <nav className="hidden sm:flex items-center gap-4">
+            {links?.map((item) => {
+              if (!item?.slug) return null;
+              return (
+                <Link
+                  key={item.documentId}
+                  className="relative hover:text-primary-hover group"
+                  href={`/${item.slug}`}
+                >
+                  {item.title}
 
-                <span className="absolute top-full left-0 w-full h-0.5 bg-primary-hover origin-right scale-x-0 transition-transform duration-500 ease-out group-hover:origin-left group-hover:scale-x-100" />
-              </Link>
-            );
-          })}
-        </nav>
+                  <span className="absolute top-full left-0 w-full h-0.5 bg-primary-hover origin-right scale-x-0 transition-transform duration-500 ease-out group-hover:origin-left group-hover:scale-x-100" />
+                </Link>
+              );
+            })}
+          </nav>
+        )}
 
         <div className="hidden sm:flex items-center gap-2">
           {SecondaryAction?.buttonText && (
@@ -64,7 +66,7 @@ export function Header({
       <MobileDrawer
         open={open}
         onClose={() => setOpen(false)}
-        HeaderNavigations={HeaderNavigations}
+        links={links}
         PrimaryAction={PrimaryAction}
         SecondaryAction={SecondaryAction}
       />

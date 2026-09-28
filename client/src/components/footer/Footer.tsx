@@ -1,14 +1,17 @@
 import { FunctionComponent } from "react";
 import { Button } from "@/src/base-components/button/Button";
 
-import { IGenFooter } from "@/src/types/IGenTypes";
+import {
+  IGenEnum_Componentbasecomponentsbutton_Variant,
+  IGenFooter,
+} from "@/src/types/IGenTypes";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 import RichTextRenderer from "@/src/base-components/richtext-renderer/RichTextRenderer";
 import { Brand } from "@/src/base-components/brand/Brand";
 
 export const Footer: FunctionComponent<
   Omit<IGenFooter, "__typename" | "documentId">
-> = ({ brand, copyrightsText, navigations, socialLinks }) => {
+> = ({ brand, copyrightsText, links, socialLinks }) => {
   return (
     <footer className="bg-background-secondary space-y-10 p-4 md:p-10">
       <div className="flex flex-col gap-8 md:flex-row items-center md:items-start md:justify-between md:gap-4">
@@ -33,13 +36,21 @@ export const Footer: FunctionComponent<
         </div>
 
         {/* Navigation */}
-        <nav className="flex flex-wrap gap-4 md:justify-end md:gap-10">
-          {navigations
-            ?.filter((navigation) => navigation !== null)
-            .map((navigation) => {
-              return <Button key={navigation.id} {...navigation} />;
+        {links && links?.length && links?.length > 0 ? (
+          <nav className="flex flex-wrap gap-4 md:justify-end md:gap-10">
+            {links.map((navigation) => {
+              return navigation ? (
+                <Button
+                  key={navigation.documentId}
+                  buttonText={navigation?.title}
+                  id={navigation.documentId}
+                  variant={IGenEnum_Componentbasecomponentsbutton_Variant.Link}
+                  buttonUrl={`/${navigation?.slug}`}
+                />
+              ) : null;
             })}
-        </nav>
+          </nav>
+        ) : null}
       </div>
 
       <RichTextRenderer
