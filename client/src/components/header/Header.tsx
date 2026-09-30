@@ -25,11 +25,11 @@ export function Header({
 
         {links && (
           <nav className="hidden sm:flex items-center gap-4">
-            {links?.map((item) => {
+            {links?.map((item, index) => {
               if (!item?.slug) return null;
               return (
                 <Link
-                  key={item.documentId}
+                  key={`${item.documentId}-header-item-${index}`}
                   className="relative hover:text-primary-hover group"
                   href={`/${item.slug}`}
                 >

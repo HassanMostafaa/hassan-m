@@ -34,7 +34,8 @@
         "components.featured-projects",
         "components.grid-cards",
         "components.self-teaser",
-        "components.contact-form"
+        "components.contact-form",
+        "components.feedbacks"
       ]
     },
     "longTitle": {

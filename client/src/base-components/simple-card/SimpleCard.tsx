@@ -5,12 +5,14 @@ import RichTextRenderer from "../richtext-renderer/RichTextRenderer";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 import { MoveUpRight } from "lucide-react";
 import { Button } from "../button/Button";
+import Image from "next/image";
 
 type ISimpleCard = Omit<
   IGenComponentBaseComponentsSimpleCard,
   "__typename" | "id"
 > & {
   index?: number;
+  imgSize?: number;
 };
 
 export const SimpleCard: FunctionComponent<ISimpleCard> = ({
@@ -18,22 +20,34 @@ export const SimpleCard: FunctionComponent<ISimpleCard> = ({
   description,
   title,
   index,
+  img,
+  imgSize = 60,
 }) => {
   return (
     <div className="border-border border bg-primary/5 p-4 md:p-10 flex flex-col justify-between gap-6">
-      <div className="space-y-2">
+      <div className="space-y-4">
+        {img?.url && (
+          <Image
+            src={img?.url}
+            width={imgSize}
+            height={imgSize}
+            alt={img?.alternativeText ?? ""}
+            className="rounded-full"
+          />
+        )}
+
         {/* index */}
         {index && <p className="text-text-muted">{padNumber(index)}.</p>}
 
         {/* title */}
         {title && <h3 className="text-3xl text-text-muted">{title}</h3>}
-      </div>
 
-      {/* description */}
-      <RichTextRenderer
-        className="text-text"
-        content={description as BlocksContent}
-      />
+        {/* description */}
+        <RichTextRenderer
+          className="text-text"
+          content={description as BlocksContent}
+        />
+      </div>
 
       {/* action */}
       {action?.buttonText && (

@@ -43,11 +43,11 @@ export function MobileDrawer({
         {/* Links */}
         {links && links?.length && links?.length > 0 ? (
           <nav className="flex flex-col gap-4">
-            {links?.map((item) => {
+            {links?.map((item, index: number) => {
               if (!item?.slug) return null;
               return (
                 <Link
-                  key={item.documentId}
+                  key={`${item.documentId}-mobile-header-item-${index}`}
                   href={`/${item.slug}`}
                   className="text-lg"
                   onClick={onClose}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_components_feedbacks",
+  "info": {
+    "displayName": "Feedbacks",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "items": {
+      "type": "component",
+      "component": "base-components.simple-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

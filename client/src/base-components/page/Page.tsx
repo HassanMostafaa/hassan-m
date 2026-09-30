@@ -5,6 +5,7 @@ import { IGenPageSectionsDynamicZone, Maybe } from "@/src/types/IGenTypes";
 import { FeaturedProjects } from "@/src/components/featured-projects/FeaturedProjects";
 import { SimpleCardsGrid } from "@/src/components/simple-cards-grid/SimpleCardsGrid";
 import { SelfTeaser } from "@/src/components/self-teaser/SelfTeaser";
+import { Feedbacks } from "@/src/components/Feedbacks";
 
 function renderSectionByType(section: IGenPageSectionsDynamicZone): ReactNode {
   switch (section.__typename) {
@@ -16,6 +17,8 @@ function renderSectionByType(section: IGenPageSectionsDynamicZone): ReactNode {
       return <SimpleCardsGrid {...section} />;
     case "ComponentComponentsSelfTeaser":
       return <SelfTeaser {...section} />;
+    case "ComponentComponentsFeedbacks":
+      return <Feedbacks {...section} />;
 
     default:
       return (

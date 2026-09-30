@@ -97,6 +97,7 @@ export interface BaseComponentsSimpleCard extends Struct.ComponentSchema {
   attributes: {
     action: Schema.Attribute.Component<'base-components.button', false>;
     description: Schema.Attribute.Blocks;
+    img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Schema.Attribute.String;
   };
 }
@@ -130,6 +131,19 @@ export interface ComponentsFeaturedProjects extends Struct.ComponentSchema {
       true
     >;
     seeAllButton: Schema.Attribute.Component<'base-components.button', false>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ComponentsFeedbacks extends Struct.ComponentSchema {
+  collectionName: 'components_components_feedbacks';
+  info: {
+    displayName: 'Feedbacks';
+    icon: 'bulletList';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks;
+    items: Schema.Attribute.Component<'base-components.simple-card', true>;
     title: Schema.Attribute.String;
   };
 }
@@ -214,6 +228,7 @@ declare module '@strapi/strapi' {
       'base-components.simple-card': BaseComponentsSimpleCard;
       'components.contact-form': ComponentsContactForm;
       'components.featured-projects': ComponentsFeaturedProjects;
+      'components.feedbacks': ComponentsFeedbacks;
       'components.grid-cards': ComponentsGridCards;
       'components.hero-section': ComponentsHeroSection;
       'components.self-teaser': ComponentsSelfTeaser;
