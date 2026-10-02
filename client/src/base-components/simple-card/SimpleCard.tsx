@@ -12,7 +12,7 @@ type ISimpleCard = Omit<
   "__typename" | "id"
 > & {
   index?: number;
-  imgSize?: number;
+  imgClassName?: string;
 };
 
 export const SimpleCard: FunctionComponent<ISimpleCard> = ({
@@ -21,18 +21,18 @@ export const SimpleCard: FunctionComponent<ISimpleCard> = ({
   title,
   index,
   img,
-  imgSize = 60,
+  imgClassName,
 }) => {
   return (
     <div className="border-border border bg-primary/5 p-4 md:p-10 flex flex-col justify-between gap-6">
       <div className="space-y-4">
         {img?.url && (
           <Image
-            src={img?.url}
-            width={imgSize}
-            height={imgSize}
-            alt={img?.alternativeText ?? ""}
-            className="rounded-full"
+            src={img.url}
+            width={img.width ?? 70}
+            height={img.height ?? 70}
+            alt={img.alternativeText ?? title ?? ""}
+            className={imgClassName}
           />
         )}
 

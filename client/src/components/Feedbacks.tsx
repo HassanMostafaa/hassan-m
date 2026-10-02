@@ -24,6 +24,7 @@ export const Feedbacks: FunctionComponent<IGenComponentComponentsFeedbacks> = ({
             return (
               <SimpleCard
                 key={`${item?.id}-feedbacks-section-item-${index}`}
+                imgClassName="rounded-full"
                 {...item}
               />
             );
